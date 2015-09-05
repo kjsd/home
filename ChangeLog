@@ -1,0 +1,1814 @@
+2014-11-24  Kenji MINOURA  <kenji@kandj.org>
+
+	* 結局必要なのは
+	オレの確定申告書控えのコピー：ある
+	開業証明書のコピー：ある
+	オレの納税証明書：役場へ
+	じゅんの納税証明書：役場へ
+	オレの戸籍謄本：役場へ
+	全員の住民票：役場へ
+	身元保証書：ダウンロードしてオレが書く．押印
+
+	* 永住権申請
+	１. 永住許可申請書 １通
+
+	２. 写真（縦４cm×横３cm） １葉
+
+	３. 身分関係を証明する次のいずれかの資料
+	配偶者の方の戸籍謄本 １通
+
+	４. 申請人を含む家族全員（世帯）の住民票
+
+	５. 申請人又は申請人を扶養する方の職業を証明する次のいずれかの資料
+	(2) 自営業等である場合
+	 a 確定申告書控えの写し　１通
+	 b 営業許可書の写し（ある場合）　１通
+ 	※自営業等の方は，自ら職業等について立証していただく必要があります
+
+	６. 直近（過去１年分）の申請人又は申請人を扶養する方の所得及び納税
+	状況を証明する次のいずれかの資料
+	(1)　会社等に勤務している場合及び自営業等である場合
+	住民税の課税（又は非課税）証明書及び納税証明書（１年間の総所得及び
+	納税状況が記載されたもの）　各１通
+	※　お住まいの区役所・市役所・役場から発行されるものです。
+	※　上記については，１年間の総所得及び納税状況（税金を納めているか
+	どうか）の両方が記載されている証明書であれば，いずれか一方でかまい
+	ません。
+	※　また，上記の証明書が，入国後間もない場合や転居等により，お住ま
+	いの区役所・市役所・役場から発行されない場合は，最寄りの地方入国管
+	理官署にお問い合わせ下さい。
+
+	７　パスポート　提示
+
+	８　在留カード又は在留カードとみなされる外国人登録証明書　提示
+
+	９　身元保証に関する資料
+	(1)　身元保証書　１通
+	※　地方入国管理官署において，用紙を用意してます。また，法務省のホー
+	ムページから取得することもできます。
+	※　身元保証人には，通常，配偶者の方になっていただきます。
+	(2)　身元保証人の印鑑
+	※　上記(1)には，押印していただく欄がありますので，印鑑をお持ち下
+	さい（提出前に(1)に押印していただいた場合は，結構です。）。
+	また，印鑑をお持ちでない方は署名（サイン）でもかまいません。
+	(3)　身元保証人に係る次の資料
+	a　職業を証明する資料　適宜
+	b　直近（過去１年分）の所得証明書　適宜
+	※　a及びbの資料については，上記５及び６を参考にして提出してくださ
+	い。
+	c　住民票　１通
+	※　cについては，上記４の資料と重複する資料となる場合もありますの
+	で，その場合は，併せて１通提出していただければ結構です。
+
+
+2014-03-13  Kenji MINOURA  <kenji@kandj.org>
+
+	* latex
+	pdf, pngなど
+	$ extractbb hoge.pdf
+
+2014-02-23  Kenji MINOURA  <kenji@kandj.org>
+
+	* rucaro
+	admin
+	test=3A
+
+2014-02-22  Kenji MINOURA  <kenji@kandj.org>
+
+	* 開業費の償却は住宅ローン減税が終わってから
+	\158,812
+
+2013-09-20  Kenji MINOURA  <kenji@kandj.org>
+
+	* 美濃太田-栄
+	\31,020
+
+	* 坂祝-栄(美濃太田)
+	\33,160
+
+	* 新鵜沼-栄(岩倉)
+	\750
+	\26,910
+	\145,320
+
+	* 新鵜沼-栄(名古屋)
+	\790
+	\27,080
+	\77,190
+	\146,240
+	坂祝-鵜沼 \180
+
+	* 坂祝-栄(名古屋)
+	\32,750
+	\173,460
+
+2013-08-22  Kenji MINOURA  <kenji@kandj.org>
+
+	* COSMIC法
+	FP法の拡張版．組み込みやリアルタイムシステム向けに開発されたが業務
+	向けシステムでも適応化．
+	ユーザ視点の機能要件を元に正規化するのではなく，通信データに基づい
+	て規模を計測する．
+	- 測定方法が比較的単純である
+	- システム間の通信などのやり取りも規模として測定できる
+	- 測定マニュアル等のドキュメントが無償で提供されている
+
+2013-08-21  Kenji MINOURA  <kenji@kandj.org>
+
+	* FP概算法(The estimated function point count)
+	※ちょっと簡単なほう
+	FP概算法は、下記の手順で行う。
+
+	1．全てのファンクションについて、ファンクションタイプ (ILF,EIF, EI,
+	EO, EQ) を決定する。
+	2．全てのデータファンクション (ILF, EIF) の複雑度をLowに、全てのト
+	ランザクションファンクション (EI, EO, EQ) の複雑度をAverageとする。
+	3．未調整ファンクションポイントを計算する。
+
+	従って、正式のカウント方法との唯一の違いは、その複雑度の評価をファ
+	ンクション毎に行うのではなく、デフォルト値で決める点である。
+
+	* FP試算法(The indicative function point count)
+	※すごく簡単なほう
+	FP試算法は、下記の手順で行う。
+
+	1．データファンクション (ILF, EIF) の数を決定する。
+	2．アプリケーションの未調整FP値を下記の計算で求める。
+
+	FP試算値(FP) = 35 x ILFの数 + 15 x EIFの数
+
+	即ち、このFP試算値は、論理ファイル (ILF, EIF) のみに基づいて算出さ
+	れる。
+	FP試算法は、下記の仮定に基づいている。
+
+	- ILFには、平均して、３つのEI (ILFに対する追加、変更、削除）と、２つ
+	のEO、１つのEQを伴う。
+	- EIFには、平均して、１つのEO、１つのEQを伴う。
+
+	* FP法
+	IFPUG - 一般的な方法．データ項目数，トランザクション数，種別が全て
+	明らかになっていなければならない
+	NESMA - FP概算法．仕様が未確定でも可能．2種類あり，データファンク
+	ションの数だけで試算するものと，データ，トランザクション数は必要だ
+	が，項目数は使わない(複雑度固定)で概算するものがある．
+
+2013-06-28  Kenji MINOURA  <kenji@kandj.org>
+
+	* nicos
+	kenji@kandj.org
+	itsumo - 1
+
+2013-06-06  Kenji MINOURA  <kenji@kandj.org>
+
+	* unifdef
+	C言語 #ifdef 置換ツール
+
+2013-04-29  Kenji MINOURA  <kenji@kandj.org>
+
+	* LifeCARD
+	minoru33
+	itsumo
+
+2013-04-28  Kenji MINOURA  <kenji@kandj.org>
+
+	* NTT(Webビリング)
+	iruka33
+	itsumo
+
+	* わたしムーヴ
+	jeong
+	itsumo
+
+2013-03-29  Kenji MINOURA  <kenji@kandj.org>
+
+	* SBI moneylook
+	info@kandj.org
+	itsumo
+
+	* SBI
+	minoru33
+	- ログイン
+	itsumo
+	- web取引
+	PC
+
+2013-03-01  Kenji MINOURA  <kenji@kandj.org>
+
+	* mencoder
+	640x360p - low HD quality
+	$: mencoder -msgcolor inputvideo.m2t -o outputvideo.mp4 -oac
+	mp3lame -lameopts
+	abr:br=64:mode=3 -srate 32000 -ovc x264 -x264encopts bitrate=384
+	-of lavf
+	-lavfopts format=mp4 -vf scale=640:360
+
+	1024x576p - pal widescreeen quality (use only if ai have source
+	video only in
+	DV quality)
+	$: mencoder -msgcolor inputvideo.m2t -o outputvideo.mp4 -oac
+	mp3lame -lameopts
+	abr:br=96:mode=3 -srate 32000 -ovc x264 -x264encopts bitrate=1248
+	-of lavf
+	-lavfopts format=mp4 -vf scale=1024:576
+
+	1280x720p - half HD quality
+	$: mencoder -msgcolor inputvideo.m2t -o outputvideo.mp4 -oac
+	mp3lame -lameopts
+	abr:br=96:mode=3 -srate 32000 -ovc x264 -x264encopts bitrate=1248
+	-of lavf
+	-lavfopts format=mp4 -vf scale=1280:720
+
+	1920x1080p - full HD quality
+	$: mencoder -msgcolor inputvideo.m2t -o outputvideo.mp4 -oac
+	mp3lame -lameopts
+	abr:br=128:mode=3 -srate 32000 -ovc x264 -x264encopts bitrate=2064
+	-of lavf
+	-lavfopts format=mp4 -vf scale=1920:1080
+
+2013-02-15  Kenji MINOURA  <kenji@kandj.org>
+
+	* ファンクションポイント
+	http:///typea-service.appspot.com/fp
+
+	* ファンクションポイント
+	http://groups.engin.umd.umich.edu/CIS/course.des/cis525/js/f00/harvey/FP_Calc.html
+
+2012-12-11  Kenji MINOURA  <kenji@kandj.org>
+
+        * JISA価格モデル
+        人月単価方式に替わる価格決定メカニズム
+        JISAより
+
+        * CoBRA法
+        ソフトウェア見積り法
+        情報処理推進機構より
+
+2012-08-28  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 中部IT健保
+	http://www.itkenpo.jp/examination/menu_jisshi.html
+
+2012-03-18  Kenji MINOURA  <minoru33@gmail.com>
+
+	* HP
+	106 173 255
+
+2012-03-11  Kenji MINOURA  <minoru33@gmail.com>
+
+	* n-transfer
+	kenji@kandj.org
+	dan539da
+
+2012-03-06  Kenji MINOURA  <minoru33@gmail.com>
+
+	* blog
+	http://feeds.feedburner.com/ameba/zecL
+
+2012-02-18  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 黒板色
+	88, 120, 115
+	#587873
+
+2011-12-23  Kenji MINOURA  <minoru33@gmail.com>
+
+	* キャッシュカード再発行
+	通帳
+	印鑑
+	免許証
+	9:00-15:00
+
+2011-12-11  Kenji MINOURA  <minoru33@gmail.com>
+
+	* muumuu
+	pinkiruka
+
+2011-12-06  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ffmpeg
+	$ ffmpeg -i in.flv -vcodec wmv2 -acodec wmav2 -ab 128k -ac 2 -b 200k -s cif out.wmv
+
+	* UFJ
+	3だけshift
+
+2011-11-29  Kenji MINOURA  <minoru33@gmail.com>
+
+	* Yahoo!BB
+	カスタマーID: 201111F0080718
+	Yahoo! JAPAN ID: gdmws487
+	認証ID: b201111f0080718@sbb.ne.jp
+	認証パスワード: e4vzrcdh
+
+	* myビリング(NTT)
+	pinkirk
+	(00)4737-3244
+	0047373244
+	dan539da
+
+
+2011-11-23  Kenji MINOURA  <minoru33@gmail.com>
+
+	* YahooBB
+	0120-981-030
+	092-288-5346
+
+2011-11-12  Kenji MINOURA  <minoru33@gmail.com>
+
+	* CLUB NTT-West
+	minoru33
+	itsumo
+
+2011-11-09  Kenji MINOURA  <minoru33@gmail.com>
+
+	* NTT
+	CAF5132049637
+	AM3RXdfP
+	NWJF-0061-5216-6010-9635
+
+	* OCN
+	N089931522
+	w416syzt@one.ocn.ne.jp
+	rzyb22
+
+2011-09-27  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ねんきんネット
+	じゅん：i6a6vjhwb
+
+2011-09-20  Kenji MINOURA  <minoru33@gmail.com>
+
+	* イロハモミジ
+	落葉高木，景観◎，木漏れ日◎，西日に弱い，日陰に弱い
+	南側でシンボルツリー
+
+	* キンモクセイ
+	常緑高木，葉が密集，西日に強い，香りがよい
+	庭西側で西日除け
+
+	* カクレミノ
+	常緑亜高木，狭くてもOK，日陰に強い，手間少ない
+	西側風呂前とか
+
+	* テイカカズラ
+	蔓，常緑低木
+	アーチに似合いそう
+
+2011-09-03  Kenji MINOURA  <minoru33@gmail.com>
+
+	* sonylife
+	00307963
+	itsumo - 1
+
+2011-08-19  Kenji MINOURA  <minoru33@gmail.com>
+
+	* OCN
+	sphy46c9@tenor.ocn.ne.jp
+	yf8ex7
+
+2011-08-18  Kenji MINOURA  <minoru33@gmail.com>
+
+	* NHK
+	minoru33
+	itsumono
+
+2011-06-07  Kenji MINOURA  <minoru33@gmail.com>
+
+	* mac
+	画面全体：Command + Shift + 3
+	選択範囲：Command + Shift + 4
+	選択ウィンドウ：Command + Shift + 4, SPACE
+
+2011-06-02  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 新居
+	505-0077 岐阜県加茂郡坂祝町深萱字念仏堂748番2
+
+2011-05-17  Kenji MINOURA  <minoru33@gmail.com>
+
+	* K&J
+      請負に関する契約書                                 1万円未満      非課税
+                                                        100万円以下       200円
+                                               100万円超200万円以下       400円
+                                               200万円超300万円以下     1,000円
+                                               300万円超500万円以下     2,000円
+                                             500万円超1,000万円以下    10,000円
+  2                                        1,000万円超5,000万円以下    20,000円
+                                               5,000万円超1億円以下    60,000円
+                                                   1億円超5億円以下   100,000円
+                                                  5億円超10億円以下   200,000円
+                                                 10億円超50億円以下   400,000円
+                                                           50億円超   600,000円
+                                           契約金額の記載のないもの       200円
+       継続的取引の基本となる契約書
+       (注)契約期間が３か月以内で、更新
+  7    の定めのないものは除きます。                     4,000円
+       (例）売買取引基本契約書、特約店契
+       約書、代理店契約書、業務委託契約
+       書、銀行取引約定書など
+
+
+2011-05-17  Kenji MINOURA  <minoru33@gmail.com>
+	* oya
+	障害者年金 10数万
+
+	住民税12万 -> 7万
+
+2011-05-13  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 4/末
+	平屋ユニット変更(6個 -> 5個)
+	全体の不足分が出る．181万オーバー
+	現在両家減額検討中
+
+	* 4/23
+	申し込み後初めて見積りが出る．
+	ローン3200万から110万不足の連絡があったのもこの頃．
+
+	子：35万オーバー
+	親：160万オーバー
+
+	* 4/15
+	両家内装打ち合わせほぼ完了．インテリアなど途中．
+	親：家相検討による間取り大幅変更の打ち合わせが行われる
+
+2011-05-08  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ipad
+	ffmpeg -i [変換元ムービー] ¥
+	-acodec libfaac -ac 2 -ar 48000 -ab 160k ¥
+	-vcodec libx264 -vpre normal -vpre main -level 31 ¥
+	-s 1280x720 -r 30 -vb 9M [出力ムービー].mp4
+
+2011-01-19  Kenji MINOURA  <minoru33@gmail.com>
+
+	* To enable anonymous FTP in Snow Leopard (and probably Leopard as
+	well), just execute the following commands in Terminal:
+
+	$ sudo dscl . -create /Users/ftp
+	$ sudo dscl . -create /Users/ftp NFSHomeDirectory /path/to/ftp/folder
+
+	Replace /path/to/ftp/folder with the path to the directory that
+	the guest account will have access to. To disable anonymous
+	access, use this command:
+
+	$ sudo dscl . -delete /Users/ftp
+
+	You may have to restart the FTP daemon by stopping File Sharing
+	and starting it again in System Preferences. Although I didn't
+	test it in Leopard, I see no reason why it shouldn't work there as
+	well.
+
+2010-12-15  Kenji MINOURA  <minoru33@gmail.com>
+
+	* SBI損保
+	minoru33
+
+	* MP310-W
+	minoru333
+
+	* C00011526061
+
+2010-03-14  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 365t g4461
+
+	* php_mysql
+	mysql.default_socket = /opt/local/var/run/mysql5/mysqld.sock
+
+2010-03-10  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ZendFramework
+        $log = new Zend_Log(new Zend_Log_Writer_Stream('/tmp/php.log'));
+        $log->debug($rtn);
+
+2010-03-08  Kenji MINOURA  <minoru33@gmail.com>
+
+	* urlencode(韓国語教室)
+	%e9%9f%93%e5%9b%bd%e8%aa%9e%e6%95%99%e5%ae%a4
+
+2010-03-02  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ココログ
+	pinkiruka33
+
+	* FC2
+	pinkiruka33
+
+	* アメーバ
+	pinkiruka33
+
+2010-02-06  Kenji MINOURA  <minoru33@gmail.com>
+
+	* jeong
+	<meta name="google-site-verification" content="XlNqX0KllmGe7sKAqdkUxhT7smJOcfys7praK0Mk70E" />
+
+	* jeong
+	<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "htt
+p://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
+js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12630595-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+	* jeong
+	  ０１２３４５６７８９０１２３
+        ０  本郷駅前ネイティブ韓国語教
+	１室☆水/木開講.時間/授業形態
+	２応相談.P有☎090-9910-3825
+
+2010-02-01  Kenji MINOURA  <minoru33@gmail.com>
+
+	* Akismet
+	API Key: bf316240e503
+
+2010-01-11  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 保険
+	6229 - けん
+	4375 - じゅん
+	3684 - かけすて生命保険．65歳まで．保証月10万
+	------------------
+	14288
+	4772 - 貯蓄型の生命保険．65歳まで．死亡時200万
+	------------------
+	19060
+
+2009-12-30  Kenji MINOURA  <minoru33@gmail.com>
+
+	* おんま
+	HITACHI CS-B52AY
+
+2009-11-14  Kenji MINOURA  <minoru33@gmail.com>
+
+	* mencoderPP
+	通常変換
+	$ mencoder [infile] -ovc xvid -xvidencopts fixed_quant=4.2:vhq=4 \
+	-oac faac -o test.avi
+
+	連結
+	$ mencoder [infiles...] -ovc copy -oac copy -o test.avi
+
+2009-11-04  Kenji MINOURA  <minoru@macmini.local>
+
+	* ライフネット保険
+	http://www.lifenet-seimei.co.jp/
+
+2009-10-29  Kenji MINOURA  <minoru33@gmail.com>
+
+	* VMWareFusion
+	DF709-QW2PZ-44XVC-HMANW-N3NGC
+
+2009-10-26  Kenji MINOURA  <minoru33@gmail.com>
+
+	* MacワイヤレスキーボードCapsLock遅延問題
+	ファームアップデート
+	http://support.apple.com/downloads/Aluminum_Keyboard_Firmware_Update_1_0
+	で解決されたらしい
+
+2009-08-02  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 動的HTMLソース表示
+	javascript:void(window.open('', '',
+	'scrollbars=yes,dependent=yes').document.write('<plaintext>' +
+	document.body.innerHTML))
+
+
+2009-06-05  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 無線LAN
+	SSID: WARPSTAR-D194EA
+	WPAパーソナル： 8D0494839D110
+
+2009-05-19  Kenji MINOURA  <minoru33@gmail.com>
+
+	* ヤフオクPS2本体
+	勢木和夫(セキ カズオ)
+	大阪府
+	配送方法：ゆうパック100サイズ
+	発送済
+
+	* ヤフオクPS2ハードディスク
+	関口孝
+	茨城
+	配送方法：ゆうパック60サイズ
+	発送済
+
+	* ヤフオクPS2ソニック
+	原田達観
+	神奈川
+	配送方法：クロネコメール便
+	振込先：ゆうちょ銀行
+	発送済
+
+	* ヤフオクPS2キーボードマニア
+	丸茂美和(マルモ ミワ)
+	埼玉県
+	配送方法：ゆうパック
+	発送済
+
+	* ヤフオクPS2Linux
+	臼井
+	北海道
+	配送方法：ゆうメール
+	発送済
+
+2009-05-11  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 裁判費用
+	手数料：\2000 収入印紙
+	予納郵便切手：
+	\500 x 10
+	\80 x 5
+	\50 x 5
+	\20 x 5
+	\10 x 5
+	小計 \5800
+	合計 \7800
+
+2009-05-02  Kenji MINOURA  <minoru33@gmail.com>
+
+	* プリンタ
+	EPSON
+	IC1BK13 黒
+	IC5CL13 カラー
+
+2009-04-26  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 車内容証明
+	  ０１２３４５６７８９０１２３４５６７８９
+	0   私は貴社との間において，平成二十一年二
+	1 月二十八日，貴社の中古車ホンダライフを買
+	2 い受ける契約をなし，その際，手付けとして
+	3 金壱万円也，その後，平成二十一年三月二日
+	4 に残り金拾参万円也，合計金拾四万円也を貴
+	5 社にお支払いしました．そして平成二十一年
+	6 三月十三日に車を引き取りましたが，当日引
+	7 き取り直後，走行に問題があるほど重大なエ
+	8 ンジンの問題が発覚したため，民法第五百七
+	9 十条と民法第四百十五条に基いて本契約を解
+	0 除します．ついては，原状回復のため金参万
+	1 八千円也，損害賠償のため金拾万弐千円也，
+	2 合計金拾四万円也を，本書面到達後十日以内
+	3 に左記の口座へお振り込み頂くとともに，貴
+	4 社が私に引き渡した右記中古車は貴社の負担
+	5 でお引き取り下さい．
+	6   また，右記期間内にお支払いなき場合は、
+	7 法的手段も辞さないことを申し上げます．
+  	8                 記
+	9 三菱東京ＵＦＪ銀行  岐阜支店
+	0 普通  一三四八二六九  ミノウラケンジ
+	1 平成二十一年四月二十八日
+        2         愛知県常滑市新浜町ー丁目八十番地
+  	3                   プレシャスコート二〇一
+        4                             箕浦 賢嗣 印
+	5 愛知県名古屋市中川区五月南通二丁目七番地
+	6                 有限会社 アクティブ 御中
+	
+	* 本
+	独習デザインパターンC++
+
+	コンピュータの名著・古典 100冊
+	http://direct.ips.co.jp/book/Template/Goods/bt_contents.cfm?GM_ID=1828&SPM_ID=1	
+
+2009-04-24  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 車
+	2/28 契約，手付け支払い(1万)
+	3/2  13万振り込み
+	3/13 納車日．問題発覚
+	4/2  修理不能連絡
+	4/15 ディーラーと車の状況確認
+	4/20 ディーラーから確認書届く
+	4/   内容証明発送
+
+2009-04-23  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 鎌倉新書
+	見積り(1)
+	http://www.boseki-sekizai.net/
+	基本データ構造設計・DBMS構築：1week
+	霊園・石材店管理システム：1week
+	石材店専用ページ(店情報，地図表示)：3day
+	バナー管理：3day
+	サイト内検索：3day
+	プロバイダーのＩＰによる現在地周辺の石材店・霊園の一発検索：3day
+	結合テスト：3day
+
+	合計 25 人/日 (+ 5 5 3 3 3 3 3)
+	(* (* 25 5) 3500)
+	
+	見積り(2)
+	http://www.sougi-bon.com/saitama/
+	基本データ構造設計・DBMS構築：1week
+	葬儀社専用ページとCMS管理システム：1week
+	葬儀社管理システム：1week
+	葬儀社・式場・フリーワード検索：3day
+	過去事例検索：3day
+	葬儀見積り・問い合わせフォーム：3day
+	その他機能：3day
+	結合テスト：3day
+
+	合計 30 人/日 (+ 5 5 5 3 3 3 3 3)
+	(* (* 30 5) 3500)
+	
+2009-04-17  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 転職
+	エスツーアイ
+	オージス
+	メディアドゥ
+	Sky
+	岡谷
+	コスモルート
+	富士ソフト
+
+2009-04-15  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 車
+	契約解除による原状回復のため38,000円
+	損害賠償で102,000円
+	利息は民法上の場合は年利5%
+	(* 140000 (/ 年利 100.0) (/ 遅延日数 365.0))
+
+2009-04-12  Kenji MINOURA  <minoru33@gmail.com>
+
+	* Bluetoothプリンタ
+	キヤノン iP100
+
+2009-03-26  Kenji MINOURA  <minoru33@gmail.com>
+
+	* Myリビング
+	arisan
+	お客さま番号：(00)4097-0276
+
+2009-03-15  Kenji MINOURA  <minoru33@gmail.com>
+
+	* mono
+	export DYLD_LIBRARY_PATH=/opt/local/lib
+	export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib
+	
+2009-02-24  Kenji MINOURA  <minoru33@gmail.com>
+
+	* 結婚式草案
+	- 引出物(日本)
+	高麗人参 \2000
+	韓国海苔 \1000
+	韓菓 \1000      x10
+	-------------------
+	最低 \40000
+
+	- 引出物(韓国)
+	スタバタンブラー \1500
+	苺大福 \1000
+	ハンカチ \1000      x3(?)
+	------------------------
+	最低 \10500
+
+	食事代(サムライクルーズ) \10500
+	日本 x18 + (子供 3人除く)
+	韓国 x6
+	----------------------------------
+	\252000 (* 10500 (+ 18 6))
+	+ \8000 (シャンパン，カラオケ？など．予備)
+	----------------------------------
+	最低 \260000
+
+	衣装 \20000
+	写真撮影  \20000(平日限定)
+	メイク \10000
+	カメラマン阿部ちゃん \5000
+	客のホテル代 \20000
+	二次会代 \30000? (- (* \3000 3))
+	・候補
+	魚菜屋 旬蔵錦店
+
+	=======================================
+	合計 \405,500 (+ 40000 10500 260000 20000 20000 10000 5000 20000 20000)
+
+2009-01-25  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* ffmpeg
+	ffmpeg -threads 3 -i <input> -r 29.97 -vcodec libx264 -s 480x272 -flags +loop -cmp +chroma -deblockalpha 0 -deblockbeta 0 -crf 24 -bt 256k -refs 1 -coder 0 -me umh -me_range 16 -subq 5 -partitions +parti4x4+parti8x8+partp8x8 -g 250 -keyint_min 25 -level 30 -qmin 10 -qmax 51 -trellis 2 -sc_threshold 40 -i_qfactor 0.71 -acodec libfaac -ab 128k -ar 48000 -ac 2 <output>
+
+2008-12-18  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* doxygen
+	graphviz, nkf or iocnv, ptetex3, ghostscript
+	あたりは欲しい．
+
+2008-12-14  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* global
+	GNU GLOBAL
+	ソースコードタグシステム．ctagsやetagsより高機能．使い易い．
+
+	* UnitTest
+	CUnit, CCUnit: C言語ユニットテストフレームワーク．CCUnitよさげ
+	EmbUnit: 組み込みC向け．libc使わない．よさそう．
+	CppUnit: C++用
+	JUnit: Java用
+
+2008-12-13  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* otool
+	Mac OS Xのldd．
+	otool -L
+	
+2008-10-20  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* NTT工事
+	10/28 13:00〜17:00
+
+2008-10-14  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 誕生日
+	手紙
+
+	* 結婚記念日
+	年数分の薔薇
+
+2008-10-11  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 國盛酒の文化館
+	半田市東本町
+
+	* ヴィラ・モスカテル
+	マスカットの香りがする *とても* 甘いワイン(シャンパン)
+
+	* ベイリーズ
+	アイリッシュウイスキーベースのリキュール．甘い
+
+2008-10-09  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 退去立ち合い
+	10/26 14:00
+
+	* ガス立ち合い
+	10/25 16:00
+
+2008-10-05  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 4人
+	希愛
+	礼勇
+	友
+	秋
+
+2008-10-03  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 郵便番号
+	479-0847
+
+2008-09-27  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 手続き
+	2009/8/B〜
+	1．（日本：韓国大使館）婚姻具備用件証明書取得
+	 - じ：戸籍謄本
+	2．（日本：役所）婚姻届＋婚姻具備用件証明書提出
+	〜1ヶ月〜
+	  * 婚姻終了連絡通知書が来る
+	3．（韓国：役所）婚姻申告
+	 - 婚姻終了連絡通知書といろんな書類
+	〜1ヶ月〜
+	 * 韓国の市役所から終了通知(電話連絡)
+	4．（日本：入管）在留資格認定証明書取得
+	〜３，４ヶ月〜
+	5．(日本：役所) 外国人登録
+	〜1ヶ月〜
+	6．(日本：入管) 在留期間変更
+	 - 在留資格認定証明書
+	〜4週間〜
+	 * 終了通知はがき
+	7．(日本：入管) 配偶者ビザ取得
+	 - 在留期間変更終了はがき※6
+	8．(日本：役所) 外国人登録書の表記を配偶者ビザに変更
+	9．(日本：韓国大使館) 在外国民登録
+
+2008-09-26  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 幻
+	千種区大久手町6-16
+
+2008-09-25  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 引越し
+	10/25?
+
+	* 粗大ゴミ
+	\500x2 \250x3
+	受付番号：0809-19700
+	※スピーカはひとつにまとめる
+
+	* 加藤家
+	石部駅
+
+	* 舞夕
+	11/14
+
+	* 壮太
+	7/19
+
+2008-09-15  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* スケジュール
+	JL988  18:10 - 19:40
+	JL5238 14:30 - 15:55
+
+2008-09-12  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* HappyBirthday
+	생일 축하합니다
+	생일 축하합니다
+	사랑하는 Dear 정이에
+	생일 축하합니다
+
+2008-06-24  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* jeong
+	ミシン
+
+2008-06-12  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* れお
+	- 伶/怜
+	「伶人」楽人．楽師．音楽家のこと
+	「怜悧/伶俐」頭のはたらきがすぐれていて，かしこいこと．聡明．
+	- 玲
+	「玲瓏」美しいこと．鮮やかなこと．
+
+	1．礼大
+	2．礼勇
+	3．伶大
+	4．伶勇
+
+	箕浦礼大
+	箕浦礼勇
+	箕浦伶大
+	箕浦伶勇
+
+	* のあ
+	- 埜(ノ)
+	「野」の古語．土の上に善悪(左近の桜)と命(右近の橘)のふたつの木が植
+	えてあることを表す．
+
+	1．埜明
+	2．埜安
+	3．埜亜
+	4．乃亜
+
+	箕浦埜亜
+	箕浦埜明
+	箕浦埜安
+	箕浦乃亜
+	
+2008-05-28  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* jeong
+	IKEA
+	八景島シーパラダイス
+
+2008-05-23  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* jeong
+	zhende0913,
+	sj3982
+
+2008-05-12  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* jeong
+	- お袋さん
+	しんちゃん？
+	1/23
+	奈良漬，あんぱん
+	
+	- 妹さん
+	손 민(孫 敏)
+
+	* jeong
+	13079291
+
+2008-05-10  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 아이처럼
+	사랑한다 말하고 날 받아줄때엔 더 이상 나는 바랄게 없다고
+	자신 있게 말해놓고 자라나는 욕심에 무안해지지만
+	또 하루 종일 그대의 생각에 난 맘 졸여요
+
+	샘이 많아서(아이처럼) 겁이 많아서(바보처럼)
+	이렇게 나의 곁에서 웃는게 믿어지지가 않아서
+	너무 좋아서 너무 벅차서 눈을 뜨면 다 사라질까봐 잠 못 들어요
+
+	주고싶은데(내 모든 걸) 받고 싶은데(그대 맘을)
+	남들처럼 할수 잇는건 다 함께 나누고 싶은데
+	맘이 급해서 속이 좁아서 괜시리 모두 망치게 될까봐 불안해 하죠
+
+	웃게해줘서(아이처럼) 울게해줘서(바보처럼)
+	이런 설렘을 평생에 또 한번 느낄 수 있게 해줘서
+	믿게 해줘서 힘이 돼줘서 눈을 뜨면 처음으로 하는 말 참 고마워요
+	내게 와줘서 꿈꾸게 해줘서 우리라는 선물을 준 그대 나 사랑해요
+
+2008-05-04  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* jeong
+	나도 사랑해
+	많이 사랑해
+	진짜야
+	잘 부탁해요
+	우리 잘 지내자
+	오래오래
+	무슨 말 쓰는지 모르겠지
+	공부 열심히해-
+	나도 열심히 할께\
+
+2008-04-16  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* Mencoder
+	H.264
+	$ mencoder dvd://1 \
+	-lavcopts vcodec=libx264:vhq:threads=3:vqscale=<0-31> \
+	...
+	
+2008-01-08  Kenji MINOURA  <minoru@macmini.local>
+
+	* man coffee
+	COFFEE(1) UnixCafe General Commands Manual COFFEE(1)
+
+	名称
+	coffee - コーヒーを注文する
+
+	書式
+	coffee [-msvS]
+
+	解説
+	coffeeは、いつもの安いコーヒーをオプションの指定にしたがって、
+	出力します。
+
+	オプションが指定されなかった場合には、ブラックで出力されます。
+	ランチの時間などは、出力に時間がかかる場合がありますが、仕様ですので
+	了承ください。
+
+	オプションとしては、以下のものがあります。
+
+	-m ミルク入れます。
+	-m 砂糖を入れます。
+	-v マスターがうんちくを垂れつつ淹れます。
+	-S 特製コーヒーです。常連の場合は、通常このオプションが
+	セットされています。
+
+	環境変数
+	以下の環境変数は coffee の動作に影響を与えます:
+
+	KYAKUNOIRI あまり多い場合には、処理速度に影響を及ぼします。
+
+	LANG ja 以外の場合には正しく動作しません。
+
+	関連項目
+	pay(1), kuinige(1), sugar(1), milk(1), unixcafe(1)
+
+	歴史
+	coffee コマンドは オープン当初からありました。。
+
+	規格
+	coffie コマンドの機能は SterBacks のスーパセットであると想定しています。
+
+	バグ
+	客が入らない場合には、煮詰まったcoffieが出力される場合が確認されています。
+
+
+	UNIXCAFE July 29, 1994 5
+
+2007-10-30  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 金城紀一
+	「レボリューションNo.３」
+
+	* 大塚英二
+	「木島日記」
+	「乞亥相」
+	
+	* 花村萬月
+	「笑う山崎」
+	「ゲルマニウムの夜」
+	「眠り猫」
+	「二進法の犬」
+	「惜春」
+	「ぢん・ぢん・ぢん」
+	「なで肩の狐」
+	
+	* 花村萬月「猫の息子-眠り猫Ⅱ-」新潮文庫
+	新宿でもっとも有名な探偵〈眠り猫〉。オレはその息子だ。金にだらしな
+	い父親(バカ)のせいで、オレはオカマのやっている呑み屋でバイトする羽
+	目に。ある日、店に鷲尾という総会屋が現れた。舎弟・富士丸を引き連れ
+	て。そして富士丸はおもむろに店をぶっ壊しはじめたのだった。確かにオ
+	レは奴らの匂いに惹かれた。友情も感じた。だが、俺たちは出会ってはい
+	けなかったんだ。『眠り猫』の興奮再び。
+	
+	* 花村萬月「猫の息子-眠り猫Ⅱ-」新潮文庫
+	善いことをするのは難しい。人の目を意識したとたん、それは偽善になる。
+	善いことをするときは、隠れてしなければならない。内緒でしなければな
+	らない。他人にばれてはならない。誇らしげに善いことをしてはならない。
+	万が一、善いことをしたのがばれてしまったら、恥ずかしそうにうつむい
+	てその場を逃げ出すしかない。
+	だいたい人目を意識して善いことをするなんて、じつに格好悪い。
+	満員電車でこれ見よがしに老人に席を譲るくらいなら、そのままふんぞり
+	かえっているほうがましだ。得意そうに席を立つ。そのデリカシーのなさ
+	は絶望的だ。
+	
+2007-10-28  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* Bugzilla
+	■インストール
+	0.前提条件
+	・Apache、MySQL、Postfixが動いてる。
+	・Perlが入ってる。
+
+	1.Bugzillaをダウンロード&解凍
+	・bugzilla-2.22.2.tar.gz ： Bugzilla本体。
+	http://www.bugzilla.org/download/
+	　←/var/www/html/に解凍し、bugzillaにrename。
+	
+	・bugzilla2.22.2-ja.tbz ： Bugzilla日本語テンプレート。
+	http://www.bugzilla.jp/about/jp.html
+	　←/var/www/html/bugzilla/template/に解凍。
+
+	2.Perlモジュールのチェック
+	# cd /var/www/html/bugzilla
+	# ./checksetup.pl --check-modules
+
+	3.不足Perlモジュールのインストール
+	# perl -MCPAN -e shell
+
+	必須モジュール
+	cpan[]> install Bundle::Bugzilla
+
+	バググラフを作りたいとき
+	cpan[]> install GD
+	cpan[]> install Chart::Base
+
+	画像をPNGに変換したいとき
+	cpan[]> install Image::Magick
+
+	画像入りバグレポートを作りたいとき
+	cpan[]> install GD::Graph
+	cpan[]> install GD::Text::Align
+	cpan[]> install Template::Plugin::GD::Image
+
+	製品/グループの説明文にHTMLタグを追加したいとき
+	cpan[]> install HTML::Parser
+	cpan[]> install HTML::Scrubber
+
+	XMLインタフェースを使いたいとき
+	cpan[]> install XML::Twig
+
+	パッチをHTMLできれいに見たいとき
+	cpan[]> install PatchReader
+
+	4.localconfigの作成
+	# ./checksetup.pl
+
+	5.localconfigの編集
+	# vi /var/www/html/bugzilla/localconfig
+
+	以下のパラメータを編集する。
+	$db_name : Bugzilla用DB名
+	$db_user : Bugzilla用DBの所有ユーザ名
+	$db_pass : Bugzilla用DBユーザのパスワード
+
+	6.MySQLユーザの作成
+	$ mysql -u root -p
+	mysql> GRANT SELECT, INSERT, UPDATE, DELETE, INDEX, ALTER, CREATE,
+	LOCK TABLES,
+        CREATE TEMPORARY TABLES, DROP, REFERENCES ON $db_name.*
+        TO $db_user@localhost IDENTIFIED BY '$db_pass';
+	　←$db_name,$db_user,$db_passは、localconfigのパラメータの値
+	mysql> FLUSH PRIVILEGES;
+
+	7.データベース&管理ユーザの作成
+	# ./checksetup.pl
+	Enter the e-mail address of the administrator: 管理ユーザのメール
+	アドレス
+	You entered ... Is this correct? [Y/n] y
+	Enter the real name of the administrator: 管理ユーザの本名
+	Enter a password for the administrator account: ログイン用のパスワード
+	Please retype the password to verify: もう1回パスワード入力
+
+	8.httpd.confの編集
+	# vi /etc/httpd/conf/httpd.conf
+
+	以下の行を追記する。
+	<Directory /var/www/html/bugzilla>
+	AddHandler cgi-script .cgi
+	Options +ExecCGI
+	DirectoryIndex index.cgi
+	AllowOverride Limit
+	</Directory>
+
+	9.httpdの再起動
+	# service httpd restart
+
+	10.WebブラウザでBugzillaへアクセス
+	http://localhost/bugzilla/
+
+	11.バググラフ作成の設定
+	# crontab -e
+
+	以下のジョブを追加
+	5 0 * * * cd /var/www/html/bugzilla; ./collectstats.pl
+
+	12.未対応バグ通知の設定
+	# crontab -e
+
+	以下のジョブを追加
+	10 0 * * * cd /var/www/html/bugzilla; ./whineatnews.pl
+
+
+	■初期設定
+	1.管理者ユーザでログイン
+	2.下のほうのメニュー「Edit」(編集)→「Parameters」(パラメータ)をク
+	リックして、以下の設定を変更
+	
+	　Required Settings (必要な設定)
+	　　→ maintainer：Bugzilla管理担当者のメールアドレス
+	　　→ urlbase：http://FQDN/bugzilla/ ←完全修飾ドメイン名(FQDN)と
+	Bugzillaのパス
+	　User Authentication (ユーザ認証)
+	　　→ requirelogin：on ←フロントページから先のページへのアクセス
+	はすべてログインが必要
+	　　→ createemailregexp：空白 ←アカウントはすべて管理者が作成
+	　Bug Change Policies (バグ変更方針)
+	　　→ commentoncreate：on ←新規バグを報告する際に説明必須
+	　　→ commentonaccept：on ←バグを受け入れる場合にコメント必須
+	　　→ commentonclearresolution：on ←バグの処理を取り消す場合にコ
+	メント必須
+	　　→ commentonconfirm：on ←バグを確認する場合にコメント必須
+	　　→ commentonresolve：on ←バグを解決済みにする場合にコメント必須
+	　　→ commentonreassign：on ←バグを再割り当てする場合にコメント必須
+	　　→ commentonreassignbycomponent：on ←バグをコンポーネントのデ
+	フォルト担当者、デフォルトQA担当者に再割り当てする場合にコメント必
+	須
+	　　→ commentonreopen：on ←バグを再開する場合にコメント必須
+	　　→ commentonverify：on ←バグの処理を確認してVERIFIEDとする場
+	合にコメント必須
+	　　→ commentonclose：on ←バグを閉じる場合にコメント必須
+	　　→ commentonduplicate：on ←バグを重複とする場合にコメント必須
+	　　→ noresolveonopenblockers：on ←未解決の依存バグがある場合
+	FIXEDにできなくする
+	　Bug Fields (バグフィールド)
+	　　→ useqacontact：on ←QA担当者フィールドを使用する
+	　　→ defaultpriority：P5 ←優先度のデフォルト値
+	　　→ defaultseverity：trivial ←深刻度のデフォルト値
+	　　→ defaultplatform：All ←プラットフォームのデフォルト値
+	　　→ defaultopsys：All ←OSのデフォルト値
+	　Localization (地域化)
+	　　→ languages：ja ←表示言語
+	　Email (メール)
+	　　→ mail_delivery_method：smtp ←メール配送方法
+	　　→ smtpserver：localhost ←SMTPサーバのアドレス
+	　　→ whinedays：7 ←ステータスがNEWまたはREOPENEDになってから、
+	新規バグに誰も触れてないことを通知するまでの日数
+	　User Matching (ユーザマッチング)
+	　　→ usemenuforusers：on ←ユーザを選択する必要がある場合に選択
+	リストを提供
+
+	■ユーザの追加
+	1.管理者ユーザでログイン
+	2.下のほうのメニュー「Edit」(編集)→「Users」(ユーザ)をクリックし
+	て、「add a new user」(新しいユーザを追加)をクリックし、ユーザ情報
+	を入力
+
+	■グループの追加
+	1.管理者ユーザでログイン
+	2.下のほうのメニュー「Edit」(編集)→「Groups」(グループ)をクリック
+	して、「Add Group」(グループの追加)をクリックし、グループ情報を入
+	力
+
+	▽デフォルトで存在するグループ
+	　admin：管理者グループ
+	　bz_canusewhineatothers：他のユーザのためのWhineレポートを編集できる。
+	　bz_canusewhines：自身のためのWhineレポートを編集できる。
+	　bz_sudoers：他のユーザになりすました作業ができる。
+	　bz_sudo_protect：他のユーザになりすましをさせない。
+	　canconfirm：バグを"Unconfirmed"状態から、("New"ステータスといっ
+	た)"Confirmed"状態へ移行できる。
+	　creategroups：グループを生成、抹消できる。
+	　editbugs：これが有効でないユーザは、担当者もしくは報告者であるバ
+	グのみを編集できる。有効でなくても、バグに対するコメントをつけるこ
+	とはできる。
+	　editclassifications：分類(classification)を作成、編集、削除でき
+	る。classification機能はデフォルトで無効になっている。
+	　editcomponents：新しいプロダクト、コンポーネントを作成、編集、削
+	除できる。
+	　editkeywords：キーワードを作成、削除できる。
+	　editusers：他のユーザの権限を編集、無効にできる。
+	　tweakparams：Bugzillaのパラメータを編集できる。
+
+	■Product(製品)の追加
+	1.管理者ユーザでログイン
+	2.下のほうのメニュー「Edit」(編集)→「Products」(製品)をクリックし
+	て、「Add a product」(製品を追加)をクリック
+	3.「製品」と「説明」を入力して「追加」ボタン
+	4.「コンポーネントを1つ以上作成」をクリックしてコンポーネントを作成
+
+	■Component(コンポーネント)の追加
+	1.管理者ユーザでログイン
+	2.下のほうのメニュー「Edit」(編集)→「Products」(製品)をクリック
+	3.コンポーネントを追加する製品をクリック
+	4.「コンポーネントの編集」をクリック
+	5.「コンポーネントを追加」をクリックし、コンポーネントの情報を入力
+
+	参考URL
+	http://www.mozilla.gr.jp/docs/beginbugzilla/
+	http://www.bugzilla.jp/docs/2.18/html/
+	http://www.bugzilla.org/docs/2.22/html/	
+
+2007-10-21  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* np2
+	hotdrv
+	np2.cfgにおいて
+
+	- 仮想ドライブルートの設定
+	hdrvroot=フォルダ名
+	e.g. hdrvroot=Macintosh HD:users:foo:Desktop
+
+	- アクセス権の設定
+	hdrv_acc=1 # read only
+	hdrv_acc=3 # r/w
+
+	guest os:
+	A:\>hostdrv [drive no(A-Z)]
+
+2007-09-17  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* pcsx2
+	svn repository:
+	https://pcsx2.svn.sourceforge.net/svnroot/pcsx2
+
+2007-09-16  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* VMware
+	- Direct3D有効
+	*.vmxを修正
+
+	---
+	mks.enable3d = TRUE
+	
+	# VRAM size (e.g. 128M. 64M: 67108864)
+	svga.vramSize = 134217728
+	
+	# いらんかも
+	vmmouse.present = FALSE
+	---
+
+	vmmouseをFALSEにした場合は以下も必要
+	1. Edit > Preferences. を選択
+	2. Input をクリック
+	3. Ungrab when cursor leaves window. のチェックを外す
+                        
+2007-08-28  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* さるぼぼ
+	赤：家族運，(無病息災，勝負運？)
+	黄：金運
+	ピンク：恋愛運
+	緑：健康運
+	紫：出世運，成功運
+	青：仕事運，学業運
+	黒：魔除け，厄除け
+
+2007-08-15  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* finger
+	linux@kernel.org
+
+2007-08-11  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* MyKDDI
+	arisan2040
+
+2007-08-09  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 829568
+	aXUQY3
+
+2007-07-22  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 情報処理技術者試験
+	団体仮受付番号：<4248-5010>
+
+	* Nostalgia
+	#
+	これから起こる可能性のひとつを空想してみるのと同じ感蝕で
+	過去は幻想にまぎれる。彼女のひだり目の中に
+	わずかな傷をみつけたのは、いま一瞬の
+
+	ここではない。
+
+	#
+	ギアを入れて走りだそう、風は南からくる
+	あの背の山はいつ越えた？
+
+	* isVirus
+	Ｑ： Windows はウィルスですか。
+	Ａ： いいえ、Windows はウィルスではありません。
+	ウィルスなら下記のような動作をします。
+
+	1. 短期間で増殖する。
+	--- ああ、Windows もそうだった。
+
+	2. ウィルスは貴重なシステム・リソースを使い果たし、その結果システ
+	ムがスローダウンしてしまう。
+	--- ああ、Windows もそうだった。
+
+	3. ウィルスはＨＤを破壊することがある。
+	--- ああ、Windows もそうだった。
+
+	4. ウィルスは通常、ユーザーが知らないうちに大事なプログラムやシス
+	テムに付いて運ばれる。
+	ため息・・・Windows もそうだった。
+
+	5. ウィルスは時にユーザーに、システムが遅すぎるのではないかと疑わ
+	せ、ユーザーは新しいハードウェアを買うことになる。
+	そう、Windows もそうだ。 
+
+	おそらく、Windows はウィルスなのだろう。
+
+	いや！ 違っている点がある！
+
+	ウィルスは作者によってよくサポートされており、頻繁にアップデートさ
+	れ、時間がたつに連れますます洗練の度を加えていくものだ。
+
+	そうなんだ！ Windows は絶対にウィルスなんかではない。
+	あれはバグなんだ。 
+
+2007-06-15  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* Luna
+	WinXPのL&F
+
+2007-05-31  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* breathe
+	I brought you something close to me,
+	Left for something you see though your here.
+	You haunt my dreams
+	Theres nothing to do but believe,
+	Just believe.
+	Just breathe.
+	
+	Another day, just believe,
+	Another day, just breathe
+	Another day, just believe,
+	Another day. just breathe.
+	
+	Im used to it by now.
+	Another day, just believe.
+	Just breathe. just believe.
+	Just breathe.
+	Lying in my bed,
+	Another day, staring at the ceiling.
+	
+	Just breathe. another day.
+	Another day, just believe.
+	Another day.
+	Im used to it by now.
+	Im used to it by now.
+	Just breathe. just believe.
+	Just breathe. just believe.
+	Just believe. just breathe.
+	Just believe.
+	Another day, just believe.
+	Another day.
+	Another day, just believe,
+	Another day, just breathe,
+	Another day (I do believe).
+	Another day(so hard to breathe)
+	Another day(not so hard to believe)
+	Another day. another day.
+
+	* tar copy
+	tar cf - SRC | tar xvp -C DST
+
+2007-05-29  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* gentoo
+	unstableパッケージを無理矢理入れる．
+	ACCEPT_KEYWORDS="~amd64"
+
+2007-05-25  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* emacs
+	M-. RET: タグジャンプ
+	M-*: ジャンプ前の位置に戻る
+	C-u M-.: 次の候補へジャンプ
+	C-u - M-.: 前の候補へジャンプ
+	M-,: tags-search
+	M-x tags-query-replace
+	
+	* MagicSysRqを有効にするには
+	echo 1 > /proc/sys/kernel/sysrq
+	使い方は，'ALT-SysRQ-[コマンドキー]'
+	
+	* /proc/sysrq-trigger
+	このファイルを操作すればMagicSysRqキー押下と同じイベントを伝えられ
+	る
+
+	* gnuify-changelog.pl
+	svn logをChangeLog風に変換
+
+	* Joost
+	http://www.joost.com/
+
+2007-05-20  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* ごはん
+	130g 189kcal(女性用茶碗)
+	180g 262kcal(男性用茶碗)
+
+	* ハチミツ
+	100g 294kcal
+
+2007-04-27  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* cygwinのgccでWindowsネイティブアプリ
+	-mno-windows でcygwin1.dllをリンクしない
+	-mwindows でGUIアプリ
+	
+	 (mingw環境を使用する．GPL回避)
+	
+2007-04-21  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* VMware
+	Windows98のサウンドアダプタはSound Blaster Ensoniq Audio
+	PCI(es1371)
+
+2007-04-16  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* fedora
+	SDL_mixer手動でインストール
+
+	* x86_64で32bitバイナリを作りたい
+	gcc -m32 (-m64で64bit)
+	CFLAGSとLDFLAGSに-m32指定でいける
+
+2007-04-13  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 十三階は月光
+	BACK-TICK
+	細胞具ドリー
+
+2007-03-21  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* DION WebMail
+	User: minoruweb
+
+	* DIONセルフページ
+	Code:a658085731
+	p46ra695
+
+2006-08-23  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* iPHONO mini
+	00:08:F4:46:27:D4
+
+2006-08-11  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* fceu hack
+	drivers/pc/input.c: static void UpdateGamepad(void)
+	まで進んだ．
+
+2006-07-20  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* MyWillcom
+	お客様番号:5812484091
+	myroom:1N43ENJM13
+
+2006-07-13  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* DIONセルフページ
+	Code:a453345282
+	ID:a453345282@bda.dion.ne.jp
+
+2006-07-11  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* ashki-refuより．Thanks!
+	wise-hack
+	staarabu-shenga
+
+2006-07-02  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* 寺山修司
+
+2006-06-29  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* rep2
+	1.7.29インストール時にいろいろPHPモジュール必要
+	pear を使ってインストール
+
+2006-06-21  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* lsof
+	ファイルをオープン中のプロセスを確認できる．
+	詳細は man lsof
+
+2006-03-31  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* sed -e "s/<a href=\"javascript:;\" onClick=\"window.open('..\/bfair\/index.php?shop_id=2','','scrollbars=yes,resizable=yes,width=610')\" target=\"_blank\">/aaa/g" chapel/index.html | less
+
+2006-03-18  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* カクテル
+	カミカゼ(ウオッカベース)
+
+	* ラム酒
+	デメララ(ダークラム)
+
+2005-12-16  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* Pressure
+	You have to learn to pace yourself
+	Pressure
+	You're just like everybody else
+	Pressure
+	You've only had to run so far
+	So good
+	But you will come to a place
+	Where the only thing you feel
+	Are loaded guns in your face
+	And you'll have to deal with
+	Pressure
+
+	You used to call me paranoid
+	Pressure
+	But even you cannot avoid
+	Pressure
+	You turned the tap dance into
+	your crusade
+	Now here you are with your faith
+	And your Peter Pan advice
+
+	You have no scars on your face
+	And you cannot handle
+	Pressure
+	All grown up and no place to go
+	Psych 1, Psych 2
+	What do you know?
+	All your life is Channel 13
+	Sesame Street
+	What does it mean?
+	Pressure
+	I'm sure you'll have some cosmic rationale
+	But here you are with your faith
+	And your Peter Pan advice
+	You have no scars on your face
+	And you cannot handle
+	Pressure
+	Mm...Pressure, pressure
+	One, two, three, four
+	Pressure
+
+2005-12-01  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* MX900
+	カーネルモジュールrow hiddev必須
+
+2005-11-12  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* PostgreSQL
+	シーケンス値(last_value)の変更
+	SELECT SETVAL('sequence_name',new_value);
+	
+2005-10-22  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* OMS_requirement
+	order_infoに配達希望日を追加
+
+2005-07-09  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* Mencoder
+	$ mencoder dvd://1 -dvd-device /dev/cdrom -oac mp3lame -ovc lavc \
+	-lavcopts vcodec=mpeg4:vhq:threads=3:vqscale=<0-31> \
+	-slang ja -alang en -o test.avi
+	
+	Audio codec:mp3，Video codec：mpeg4(DivX4/5)
+	音声英語，日本語字幕
+
+	$ mencoder dvd://1 -ovc xvid -xvidencopts fixed_quant=<0-31> \
+	-oac mp3lame -lameopts cbr:br=128 -slang ja -alang en -o test.avi
+	
+	Audio codec:mp3, Video codec:XviD
+	音声英語，日本語字幕
+	
+	* MPlayer
+	$ ./configure --enable-gui --enable-largefiles --enable-joystick \
+	--enable-menu --language=ja \
+	--with-codecsdir=/home/minoru/lib/codecs
+
+2005-06-09  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* prin
+	アクセス番号:
+	つなぎ放題［PRO］       0570570711##64
+	ネット25［PRO］         0570570711##64
+	パケコミネット［PRO］   0570570711##64
+	つなぎ放題［4x］        0570570711##64
+	つなぎ放題［1x］        0570570611##61
+	ネット25(4xパケット方式)        0570570511##64
+	ネット25(フレックスチェンジ方式)        0570570511##7
+	パケコミネット(4xパケット方式)  0570570711##64
+	パケコミネット(1xパケット方式)  0570570611##61
+	64kPIAFS(回線交換方式)  0570570011##4
+
+	#ご利用の通信速度・通信手段により、アクセス番号の後に入力する記号
+	等(##4、##7)が異なります。詳しくはUSBケーブル、PCカード等の取扱説
+	明書でご確認下さい。
+	#「ネット25」、「つなぎ放題」をご契約のお客様が「回線交換方式」の
+	アクセス番号で通信をすると、ご契約コースの料金とは別に標準コースの
+	通信料がかかります。
+	
+	ユーザID        prin
+	パスワード      prin
+	プライマリDNSサーバ:
+	「自動で取得する」「サーバーから割り当てる」等で設定
+	（64KPIAFSの場合のみ210.196.3.183）
+	セカンダリDNSサーバ:
+	「自動で取得する」「サーバーから割り当てる」等で設定
+	（64KPIAFSの場合のみ210.141.112.163）
+	POPサーバ       pop3.pdx.ne.jp
+	SMTPサーバ      smtp.pdx.ne.jp
+	
+	* DION
+	<アクセスポイント>
+	パケコミネット 1xパケット方式 32kbps 0570-570-600##61 
+	パケコミネット 4xパケット方式 128kbps 0570-570-700##64 
+	つなぎ放題[PRO] 8xパケット方式 256kbps 0570-570-700##64 
+	ネット25 フレックスチェンジ方式 32kbps←→64kbps 0570-570-200##7 
+	ネット25 4xパケット方式 128kbps 0570-570-200##64 
+	ネット25[PRO] 8xパケット方式 256kbps 0570-570-700##64 
+	音声定額 ウィルコム定額プラン 1xパケット方式 32kbps 0570-570-600##61 
+
+	<接続設定>
+	auの携帯電話 ログインID@ineta.dion.ne.jp ログインパスワード
+	ウィルコム(AIR-EDGE) セルフID セルフパスワード
+
+2005-05-21  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* TiMidity
+	$ ./configure --enable-audio=alsa,esd,vorbis
+	--enable-dynamic=ncurses,tcltk,motif,emacs,vt100,xaw,xskin,gtk
+	--enable-server --enable-alsaseq --enable-network
+	--enable-spectrogram --enable-wrd
+
+2005-05-08  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* お袋
+	502-0076 岐阜県岐阜市長良友瀬70プリベ−ル長良203号室
+
+2005-04-12  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* DTS
+	libdtsは著作権侵害攻撃により終息の危機．ソースは以下
+	~/src/libdca-0.0.2-pm.1.src.tar.gz
+	※なお，このあおりを受けて mplayer もダメかも
+	
+2005-04-04  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* CPUファン
+	PAL8150M81：高速
+	PAL8150M82：静音
+	http://www.micforg.co.jp/jp/c_pal8150.html
+
+2005-03-06  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* HTML自動更新
+	<!-- "30" は 秒>
+	<meta http-equiv="refresh" content="30">
+	
+
+2005-03-05  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* DD_BBS
+	工数(含第3者レス制限)
+	- BBS表示部：1日
+	- BBSデータ管理部：2日
+	- 管理画面表示部：1日
+	- 管理画面データ管理部：2日
+	- HTMLインタフェース部：1日
+	- テスト，デバッグ: 2日
+	- スクリプト使用方法マニュアル：半日
+	- HTMLインタフェース作成マニュアル：1日
+	合計：10.5日
+
+	* PHP
+	./configure  --with-apxs2=/usr/local/apache2/bin/apxs --with-pgsql --with-gd --with-jpeg-dir=/usr/lib --with-zlib-dir=/usr/lib --with-openssl --with-bz2 --with-xpm-dir=/usr/X11R6/lib --with-freetype-dir=/usr/X11R6 --with-iconv=/usr/local/lib --with-png-dir=/usr/lib --enable-mbstring
+
+2005-01-15  Kenji MINOURA  <minoru@club.h14m.org>
+
+	* d-of-dリニューアル
+	以前スタイル変更時に変な修正をして合わせたらしい．要注意
