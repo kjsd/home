@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2015-04-02 15:05:05 ZZPX0854>
+;;                            Time-stamp: <2015-12-05 21:44:50 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -92,34 +92,35 @@
 
 ;font
 (if window-system
-    (when windows-p
-      (progn
-        (create-fontset-from-ascii-font
-         "Inconsolata-11:weight=normal:slant=normal" nil "default")
-        (set-fontset-font "fontset-default"
-                          'unicode
-                          (font-spec :family "MeiryoKe_Console" :size 14)
-                          nil
-                          'append)
-        ))
-    (when darwin-p
-      (progn
-        (create-fontset-from-ascii-font
-         "Ricty-14:weight=normal:slant=normal" nil "default")
-        (set-fontset-font "fontset-default"
-                          'unicode
-                          (font-spec :family "Ricty" :size 14)
-                          nil
-                          'append)
-        (create-fontset-from-ascii-font
-         "AppleGothic-14:weight=normal:slant=normal" nil "hangeul")
-        (set-fontset-font "fontset-hangeul"
-                          'unicode
-                          (font-spec :family "AppleGothic" :size 14)
-                          nil
-                          'append)
-        ))
-)
+    (progn
+      (when windows-p
+        (progn
+          (create-fontset-from-ascii-font
+           "Inconsolata-11:weight=normal:slant=normal" nil "default")
+          (set-fontset-font "fontset-default"
+                            'unicode
+                            (font-spec :family "MeiryoKe_Console" :size 14)
+                            nil
+                            'append)
+          ))
+      (when darwin-p
+        (progn
+          (create-fontset-from-ascii-font
+           "Ricty-14:weight=normal:slant=normal" nil "default")
+          (set-fontset-font "fontset-default"
+                            'unicode
+                            (font-spec :family "Ricty" :size 14)
+                            nil
+                            'append)
+          (create-fontset-from-ascii-font
+           "AppleGothic-14:weight=normal:slant=normal" nil "hangeul")
+          (set-fontset-font "fontset-hangeul"
+                            'unicode
+                            (font-spec :family "AppleGothic" :size 14)
+                            nil
+                            'append)
+          ))
+      ))
 
 ;;; X 版 Mule の設定
 (if window-system
