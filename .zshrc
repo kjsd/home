@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2015-01-14 15:18:54 minoru>
+#                            Time-stamp: <2016-02-03 21:26:31 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -228,7 +228,7 @@ alias reload="source ~/.zshrc"
 #alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
 #alias screen="screen -U"
 alias hd=hexdump
-alias secon='umask 077'
+alias secon='umask 027'
 alias secoff='umask 022'
 alias mule='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
 alias wol_serv='wol 192.168.24.3 40:6c:8f:3b:40:82'
@@ -250,6 +250,7 @@ word_abbrev=(
 	"lw"	"| wc"
 	"lh"	"| head"
 	"lt"	"| tail"
+	"work"	"~/Documents/work"
 )
 
 # パイプに対する補完
