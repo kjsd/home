@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-02-25 18:56:00 minoru>
+;;                            Time-stamp: <2016-03-06 21:20:55 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -26,7 +26,8 @@
 	  emacs23-p (string-match "^23" emacs-version)
 	  emacs23.0-p (string-match "^23\.0" emacs-version)
 	  emacs23.1-p (string-match "^23\.1" emacs-version)
-	  emacs23.2-p (string-match "^23\.2" emacs-version))
+	  emacs23.2-p (string-match "^23\.2" emacs-version)
+	  emacs24-p (string-match "^24" emacs-version))
 
 ;; system-type predicates
 (setq darwin-p  (eq system-type 'darwin)
@@ -49,11 +50,27 @@
 
 ;;; マクロサーチパスの追加
 ;;; ~/.emacs.d/lisp 以下にユーザ用の *.el, *.elc を置くことができます
-(setq load-path (append '("~/.emacs.d/lisp") load-path))
+(let ((default-directory (expand-file-name "~/.emacs.d/lisp")))
+  (add-to-list 'load-path default-directory)
+  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+           (normal-top-level-add-subdirs-to-load-path)))
+
 (setq load-path
       (append '("/usr/local/share/emacs/site-lisp")
               '("/opt/local/share/emacs/site-lisp")
               load-path))
+
+(when emacs24-p
+  (progn
+    (package-initialize)
+    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+    (require 'auto-install)
+    (auto-install-compatibility-setup)
+    (load-theme 'dark-laptop t t)
+    (enable-theme 'dark-laptop)
+    ))
+
 
 ;;; C-h と Del の入れ替え
 ;;; Help が Shift + Ctrl + h および Del に割当てられ、
@@ -148,11 +165,6 @@
 )
 (setq frame-background-mode 'dark)
 
-(setq load-path (append '("~/.emacs.d/lisp/color-theme") load-path))
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-dark-laptop)
-
 ;;; 最終更新日の自動挿入
 ;;;   ファイルの先頭から 8 行以内に Time-stamp: <> または
 ;;;   Time-stamp: " " と書いてあれば、セーブ時に自動的に日付が挿入されます
@@ -192,7 +204,7 @@
 (setq delete-auto-save-files t)
 
 ;;; visible-bell
-(setq visible-bell t)
+(setq visible-bell nil)
 
 ;;; 起動直後の *scratch* buffer に入る文字列をなくす
 ;(setq initial-scratch-message nil)
@@ -216,11 +228,11 @@
 (setq-default tramp-default-method "sshx")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ddskk
+;; Ddskk
 ;;   Mule 上の仮名漢字変換システム SKK の設定
 ;;   C-x t でチュートリアルが起動します
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'skk-autoloads)
+;(require 'skk-autoloads)
 (setq default-input-method "japanese-skk")
 
 ;;; SKK-JISYO.L をメモリ上に読み込んで利用する場合
@@ -459,7 +471,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; mmm-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq load-path (append '("~/.emacs.d/lisp/mmm-mode") load-path))
 
 ;; mmm-mode
 (require 'mmm-mode)
@@ -536,7 +547,6 @@
 ;; w3m
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq load-path (append '("~/.emacs.d/lisp/w3m") load-path))
 (autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
 (autoload 'w3m-find-file "w3m" "interface function for local file." t)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
@@ -590,13 +600,9 @@
 ;(global-set-key "\C-x\C-b" 'buffer-menu-other-window)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; tabbar
+;; elscreen
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'tabbar)
-(tabbar-mode)
-
-(global-set-key "\C-c\C-l" 'tabbar-forward-tab)
-(global-set-key "\C-c\C-k" 'tabbar-backward-tab)
+(elscreen-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; vc-svn
@@ -606,7 +612,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sdic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq load-path (cons "~/.emacs.d/lisp/sdic" load-path))
 (autoload 'sdic-describe-word "sdic" "英単語の意味を調べる" t nil)
 (global-set-key "\C-cw" 'sdic-describe-word)
 (autoload 'sdic-describe-word-at-point "sdic" "カーソルの位置の英単語の意味を調
@@ -664,6 +669,7 @@
   )
 
 (setq exec-path (parse-colon-path (getenv "PATH")))
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;; start server
 (require 'server)
@@ -672,3 +678,17 @@
 
 (cd "~")
 ;; .emacs ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
