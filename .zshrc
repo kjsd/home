@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-02-03 21:26:31 minoru>
+#                            Time-stamp: <2016-03-06 21:35:20 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -19,25 +19,14 @@ SHELL=/bin/zsh
 export SHELL
 
 # set path
-export PATH=~/bin:/opt/local/libexec/gnubin:/usr/local/bin:/usr/texbin:/opt/local/bin:/Applications/MacPorts/Emacs.app/Contents/MacOS/bin:/opt/google_appengine:$PATH
+export PATH="~/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
 
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X'
 #export PAGER=less
 export PAGER="lv -Ou8 -c -s"
 
-export CVSROOT=/work/CVSREP
-export EDITOR=vi
-
-export SKINSDIR=~/.Skins
-
-export MANPATH=/opt/local/man:$MANPATH
-export LIBRARY_PATH=/opt/local/lib:$LIBRARY_PATH
-#export LD_LIBRARY_PATH=/opt/local/lib:$LD_LIBRARY_PATH
-export C_INCLUDE_PATH=/opt/local/include:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/opt/local/include:$CPLUS_INCLUDE_PATH
-#export DYLD_FALLBACK_LIBRARY_PATH=/opt/local/lib
-export BOOST_ROOT=/opt/local/include/boost:$BOOST_ROOT
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 #-----------------------------------------------------------------
 # 非端末プロセスなら終了
@@ -230,8 +219,6 @@ alias reload="source ~/.zshrc"
 alias hd=hexdump
 alias secon='umask 027'
 alias secoff='umask 022'
-alias mule='/Applications/MacPorts/Emacs.app/Contents/MacOS/Emacs -nw'
-alias wol_serv='wol 192.168.24.3 40:6c:8f:3b:40:82'
 
 #-----------------------------------------------------------------
 # キーバインド設定
@@ -356,7 +343,7 @@ bindkey '^o^/' reverse-menu-complete
 #-----------------------------------------------------------------
 # ローカル設定の読み込み
 #-----------------------------------------------------------------
-#[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 #echo Now zsh version $ZSH_VERSION start!
 
