@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-03-06 21:35:20 minoru>
+#                            Time-stamp: <2016-06-22 02:23:28 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -19,12 +19,12 @@ SHELL=/bin/zsh
 export SHELL
 
 # set path
-export PATH="~/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
 
 # less で行番号をつけ，終了後に画面を残す
-export LESS='-i -M -X'
-#export PAGER=less
-export PAGER="lv -Ou8 -c -s"
+export LESS='-i -M -X -R'
+export PAGER=less
+#export PAGER="lv -Ou8 -c -s"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -197,7 +197,7 @@ fignore=(.o .dvi .aux .log .toc - \~)
 # tcsh% alias m "mule !* &" → zsh%  m() { mule $* & }
 # 
 # ls で色をつける
-eval $(dircolors ~/lib/dircolors/default)
+eval $(dircolors ~/lib/dircolors/dircolors.ansi-light)
 LS_OPTIONS='-F --color=auto'
 
 alias ls='ls $LS_OPTIONS'
@@ -238,6 +238,7 @@ word_abbrev=(
 	"lh"	"| head"
 	"lt"	"| tail"
 	"work"	"~/Documents/work"
+	"proj"	"~/Documents/work/project"
 )
 
 # パイプに対する補完

@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-03-06 21:20:55 minoru>
+;;                            Time-stamp: <2016-06-23 13:00:41 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -257,6 +257,11 @@
 (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program "open")
 
+(add-hook 'isearch-mode-hook
+	  (function (lambda ()
+		      (and (boundp 'skk-mode) skk-mode
+			   (skk-isearch-mode-setup)))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YaTeX
 ;;   [La]TeX 入力モード
@@ -416,7 +421,6 @@
     '(lambda () (define-abbrev php-mode-abbrev-table "ex" "extends")))
 
 ;; js2-mode
-(autoload 'js2-mode "js2" nil t)
 (defun indent-and-back-to-indentation ()
   (interactive)
   (indent-for-tab-command)
@@ -458,15 +462,10 @@
          (setq indent-tabs-mode nil)
          ))
 
-;;; fortran-mode
-;(add-hook 'fortran-mode-hook
-;	  '(lambda ()
-;	     ; 漢字を追加した時に…，
-	     ; 文字コードを質問してから保存してほしい場合．
-;;	     (my-set-file-encoding default-buffer-file-coding-system)
-	     ; EUCで速攻で保存する場合．
-;;	     (my-set-file-encoding-quick 'euc-japan)
-;	     ) t)
+;(setq load-path (cons "/usr/local/opt/erlang/lib/erlang/lib/tools-2.8.3/emacs"
+;                      load-path))
+;(setq erlang-root-dir "/usr/local/opt/erlang")
+;(require 'erlang-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; mmm-mode

@@ -349,14 +349,14 @@ File: skk.info,  Node: DDSKK のインストール,  Next: 辞書について,  
 
    (1) Microsoft Windows 環境では、‘makeit.bat’ を使用することで 同様の
 操作でインストールできます。
-<https://github.com/skk-dev/ddskk/READMEs/README.w32.ja>
+<https://github.com/skk-dev/ddskk/blob/master/READMEs/README.w32.ja.org>
 
  cygwin 環境をインストールされている方は ‘make’ コマンドが使用できる の
 で、本文の解説がそのまま当てはまります。
 
  Apple OS X 環境の方は
-<https://github.com/skk-dev/ddskk/READMEs/README.MacOSX.ja> を参照してく
-ださい。
+<https://github.com/skk-dev/ddskk/blob/master/READMEs/README.MacOSX.ja>
+を参照してください。
 
    (2) ‘ChangeLog’ や ‘Makefile’ が置かれているディレクトリです。
 
@@ -1910,7 +1910,7 @@ SKK の基本的な機能は、‘skk.el’ に収められています。一方
      SKK の学習機能のひとつで、ユーザの過去の入力から変換候補を予測しま
      す。
 
-     <https://github.com/skk-dev/ddskk/bayesian/README.ja>
+     <https://github.com/skk-dev/ddskk/tree/master/bayesian>
 
 ‘skk-cdb.el’
 

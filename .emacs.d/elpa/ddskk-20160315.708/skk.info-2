@@ -1194,7 +1194,7 @@ DDSKK はローマ字式ではない、いわゆるかな入力方式をサポ�
 ストールする必要があります。SKK ソースディレクトリの ‘nicola’ ディ レク
 トリに移動し、ドキュメントに従ってインストールしてください。
 
- <https://github.com/skk-dev/ddskk/nicola/README.ja>
+ <https://github.com/skk-dev/ddskk/blob/master/nicola/README.ja>
 
  続いて設定をします。
 
@@ -1362,12 +1362,12 @@ DDSKK についての最新情報は、
  最新版 DDSKK の変更内容と更に過去の変更点については以下のリソースを参照
 してください。
 
-     <https://github.com/skk-dev/ddskk/READMEs/NEWS.ja>
+     <https://github.com/skk-dev/ddskk/blob/master/READMEs/NEWS.ja>
 
  また、将来のバージョンにおける拡張アイディアについては、TODO としてまと
 められています。
 
-     <https://github.com/skk-dev/ddskk/READMEs/TODO.ja>
+     <https://github.com/skk-dev/ddskk/blob/master/READMEs/TODO.ja>
 
  SKK Openlab では、開発者、文章の整備にご協力いただける方、テスター、よ
 ろ ずものを言う人などなど、常に募集しています。また要望、拡張の具体的ア
@@ -1614,7 +1614,7 @@ SKK がサポートしている Emacs がその OS で動いているなら、SK
 
  Apple OS X 版 Emacs に特化した情報については、以下のファイルを参照して
 ください。
-     <https://github.com/skk-dev/ddskk/READMEs/README.MacOSX.ja>
+     <https://github.com/skk-dev/ddskk/blob/master/READMEs/README.MacOSX.ja>
 
 
 File: skk.info,  Node: Q1-5 APEL って何? 必要ですか?,  Prev: Q1-4 DDSKK はどんなオペレーティングシステムで使えますか?,  Up: Introduction

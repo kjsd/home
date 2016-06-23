@@ -3,7 +3,7 @@
 ;;; Code:
 (add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
 
-;;;### (autoloads nil "context-skk" "context-skk.el" (22236 6465
+;;;### (autoloads nil "context-skk" "context-skk.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from context-skk.el
 
@@ -55,7 +55,7 @@
 
 ;;;***
 
-;;;### (autoloads nil "skk" "skk.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk" "skk.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk.el
 
 (autoload 'skk-mode "skk" "\
@@ -160,7 +160,7 @@ Emacs 起動時にあらかじめ SKK を呼ぶことで SKK の応答を速く�
 
 ;;;***
 
-;;;### (autoloads nil "skk-abbrev" "skk-abbrev.el" (22236 6465 0
+;;;### (autoloads nil "skk-abbrev" "skk-abbrev.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-abbrev.el
 
@@ -171,8 +171,8 @@ Emacs 起動時にあらかじめ SKK を呼ぶことで SKK の応答を速く�
 
 ;;;***
 
-;;;### (autoloads nil "skk-annotation" "skk-annotation.el" (22236
-;;;;;;  6465 0 0))
+;;;### (autoloads nil "skk-annotation" "skk-annotation.el" (22379
+;;;;;;  24506 0 0))
 ;;; Generated autoloads from skk-annotation.el
 
 (autoload 'skk-annotation-get "skk-annotation" "\
@@ -272,7 +272,7 @@ Wiktionary/Wikipedia の WORD に相当する記事からアノテーション�
 
 ;;;***
 
-;;;### (autoloads nil "skk-auto" "skk-auto.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-auto" "skk-auto.el" (22379 24506 0 0))
 ;;; Generated autoloads from skk-auto.el
 
 (autoload 'skk-okuri-search-1 "skk-auto" "\
@@ -287,7 +287,7 @@ Wiktionary/Wikipedia の WORD に相当する記事からアノテーション�
 
 ;;;***
 
-;;;### (autoloads nil "skk-cdb" "skk-cdb.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-cdb" "skk-cdb.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-cdb.el
 
 (autoload 'skk-search-cdb-jisyo "skk-cdb" "\
@@ -297,7 +297,7 @@ Wiktionary/Wikipedia の WORD に相当する記事からアノテーション�
 
 ;;;***
 
-;;;### (autoloads nil "skk-comp" "skk-comp.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-comp" "skk-comp.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-comp.el
 
 (autoload 'skk-comp-start-henkan "skk-comp" "\
@@ -452,7 +452,7 @@ WITHOUT-MIDASI を指定すると見出しは省かれる。
 
 ;;;***
 
-;;;### (autoloads nil "skk-cursor" "skk-cursor.el" (22236 6465 0
+;;;### (autoloads nil "skk-cursor" "skk-cursor.el" (22379 24506 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-cursor.el
 
@@ -473,7 +473,7 @@ WITHOUT-MIDASI を指定すると見出しは省かれる。
 
 ;;;***
 
-;;;### (autoloads nil "skk-cus" "skk-cus.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-cus" "skk-cus.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-cus.el
 
 (autoload 'skk-customize-group-skk "skk-cus" "\
@@ -498,7 +498,7 @@ WITHOUT-MIDASI を指定すると見出しは省かれる。
 
 ;;;***
 
-;;;### (autoloads nil "skk-dcomp" "skk-dcomp.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-dcomp" "skk-dcomp.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-dcomp.el
 
 (autoload 'skk-dcomp-marked-p "skk-dcomp" "\
@@ -518,7 +518,7 @@ WITHOUT-MIDASI を指定すると見出しは省かれる。
 
 ;;;***
 
-;;;### (autoloads nil "skk-develop" "skk-develop.el" (22236 6465
+;;;### (autoloads nil "skk-develop" "skk-develop.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-develop.el
 
@@ -540,7 +540,7 @@ DIR.
 
 ;;;***
 
-;;;### (autoloads nil "skk-emacs" "skk-emacs.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-emacs" "skk-emacs.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-emacs.el
 
 (autoload 'skk-emacs-prepare-menu "skk-emacs" "\
@@ -568,7 +568,7 @@ GNU Emacs に付属するかな漢字変換辞書を用いて検索する。
 
 ;;;***
 
-;;;### (autoloads nil "skk-gadget" "skk-gadget.el" (22236 6465 0
+;;;### (autoloads nil "skk-gadget" "skk-gadget.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-gadget.el
 
@@ -715,7 +715,7 @@ NUMBER について UNIT-FROM から UNIT-TO への換算を行う。
 
 ;;;***
 
-;;;### (autoloads nil "skk-inline" "skk-inline.el" (22236 6465 0
+;;;### (autoloads nil "skk-inline" "skk-inline.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-inline.el
 
@@ -726,7 +726,7 @@ NUMBER について UNIT-FROM から UNIT-TO への換算を行う。
 
 ;;;***
 
-;;;### (autoloads nil "skk-isearch" "skk-isearch.el" (22236 6465
+;;;### (autoloads nil "skk-isearch" "skk-isearch.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-isearch.el
 
@@ -756,7 +756,7 @@ Hook function called when skk isearch is done.
 
 ;;;***
 
-;;;### (autoloads nil "skk-jisx0201" "skk-jisx0201.el" (22236 6465
+;;;### (autoloads nil "skk-jisx0201" "skk-jisx0201.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-jisx0201.el
 
@@ -782,7 +782,7 @@ SKK のモードを JIS X 0201 モードに変更する。
 
 ;;;***
 
-;;;### (autoloads nil "skk-jisx0213" "skk-jisx0213.el" (22236 6465
+;;;### (autoloads nil "skk-jisx0213" "skk-jisx0213.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-jisx0213.el
 
@@ -794,7 +794,7 @@ SKK のモードを JIS X 0201 モードに変更する。
 ;;;***
 
 ;;;### (autoloads nil "skk-jisyo-edit-mode" "skk-jisyo-edit-mode.el"
-;;;;;;  (22236 6465 0 0))
+;;;;;;  (22379 24505 0 0))
 ;;; Generated autoloads from skk-jisyo-edit-mode.el
 
 (autoload 'skk-jisyo-edit-mode "skk-jisyo-edit-mode" "\
@@ -829,7 +829,7 @@ SKK 使用中の場合は SKK による個人辞書バッファの更新が禁�
 
 ;;;***
 
-;;;### (autoloads nil "skk-kakasi" "skk-kakasi.el" (22236 6465 0
+;;;### (autoloads nil "skk-kakasi" "skk-kakasi.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-kakasi.el
 
@@ -948,7 +948,7 @@ SKK 使用中の場合は SKK による個人辞書バッファの更新が禁�
 
 ;;;***
 
-;;;### (autoloads nil "skk-kcode" "skk-kcode.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-kcode" "skk-kcode.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-kcode.el
 
 (autoload 'skk-input-by-code-or-menu "skk-kcode" "\
@@ -969,7 +969,7 @@ SKK 使用中の場合は SKK による個人辞書バッファの更新が禁�
 
 ;;;***
 
-;;;### (autoloads nil "skk-leim" "skk-leim.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-leim" "skk-leim.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-leim.el
 
 (autoload 'skk-activate "skk-leim" "\
@@ -998,7 +998,7 @@ SKK 使用中の場合は SKK による個人辞書バッファの更新が禁�
 
 ;;;***
 
-;;;### (autoloads nil "skk-look" "skk-look.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-look" "skk-look.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-look.el
 
 (autoload 'skk-look "skk-look" "\
@@ -1037,7 +1037,7 @@ words ファイルにある全ての見出しを返す。
 
 ;;;***
 
-;;;### (autoloads nil "skk-macs" "skk-macs.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-macs" "skk-macs.el" (22379 24506 0 0))
 ;;; Generated autoloads from skk-macs.el
 
 (put 'skk-defadvice 'lisp-indent-function 'defun)
@@ -1046,7 +1046,7 @@ words ファイルにある全ての見出しを返す。
 
 ;;;***
 
-;;;### (autoloads nil "skk-num" "skk-num.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-num" "skk-num.el" (22379 24506 0 0))
 ;;; Generated autoloads from skk-num.el
 
 (autoload 'skk-num-compute-henkan-key "skk-num" "\
@@ -1116,7 +1116,7 @@ type4 の数値再変換が行われたときは、数値自身を返し、そ�
 
 ;;;***
 
-;;;### (autoloads nil "skk-server" "skk-server.el" (22236 6465 0
+;;;### (autoloads nil "skk-server" "skk-server.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-server.el
 
@@ -1147,7 +1147,7 @@ non-nil であれば、加える。
 ;;;***
 
 ;;;### (autoloads nil "skk-server-completion" "skk-server-completion.el"
-;;;;;;  (22236 6465 0 0))
+;;;;;;  (22379 24505 0 0))
 ;;; Generated autoloads from skk-server-completion.el
 
 (autoload 'skk-server-completion-search "skk-server-completion" "\
@@ -1164,7 +1164,7 @@ Server completion に対応した辞書サーバを利用する補完プログ�
 
 ;;;***
 
-;;;### (autoloads nil "skk-show-mode" "skk-show-mode.el" (22236 6465
+;;;### (autoloads nil "skk-show-mode" "skk-show-mode.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-show-mode.el
 
@@ -1175,7 +1175,7 @@ Server completion に対応した辞書サーバを利用する補完プログ�
 
 ;;;***
 
-;;;### (autoloads nil "skk-study" "skk-study.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-study" "skk-study.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-study.el
 
 (autoload 'skk-study-search "skk-study" "\
@@ -1221,7 +1221,7 @@ TO の既存データは破壊される。
 
 ;;;***
 
-;;;### (autoloads nil "skk-tankan" "skk-tankan.el" (22236 6465 0
+;;;### (autoloads nil "skk-tankan" "skk-tankan.el" (22379 24505 0
 ;;;;;;  0))
 ;;; Generated autoloads from skk-tankan.el
 
@@ -1247,7 +1247,7 @@ TO の既存データは破壊される。
 
 ;;;***
 
-;;;### (autoloads nil "skk-tut" "skk-tut.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-tut" "skk-tut.el" (22379 24506 0 0))
 ;;; Generated autoloads from skk-tut.el
 
 (autoload 'skk-tutorial "skk-tut" "\
@@ -1258,7 +1258,7 @@ You can select English version by \\[universal-argument] \\[skk-tutorial].
 
 ;;;***
 
-;;;### (autoloads nil "skk-vars" "skk-vars.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-vars" "skk-vars.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-vars.el
 
 (put 'skk-deflocalvar 'lisp-indent-function 'defun)
@@ -1275,7 +1275,7 @@ Emacs の起動そのものは遅くなるが、DDSKK の初回起動を早く�
 
 ;;;***
 
-;;;### (autoloads nil "skk-version" "skk-version.el" (22236 6465
+;;;### (autoloads nil "skk-version" "skk-version.el" (22379 24505
 ;;;;;;  0 0))
 ;;; Generated autoloads from skk-version.el
 
@@ -1288,7 +1288,7 @@ the codename.
 
 ;;;***
 
-;;;### (autoloads nil "skk-viper" "skk-viper.el" (22236 6465 0 0))
+;;;### (autoloads nil "skk-viper" "skk-viper.el" (22379 24505 0 0))
 ;;; Generated autoloads from skk-viper.el
 
 (autoload 'skk-viper-normalize-map "skk-viper" "\
@@ -1298,7 +1298,7 @@ the codename.
 
 ;;;***
 
-;;;### (autoloads nil "tar-util" "tar-util.el" (22236 6465 0 0))
+;;;### (autoloads nil "tar-util" "tar-util.el" (22379 24506 0 0))
 ;;; Generated autoloads from tar-util.el
 
 (autoload 'tar-make-descriptor "tar-util" "\
@@ -1333,8 +1333,8 @@ Salvage SALVAGEFILE in ARCHIVE, and save to SAVEFILE.
 ;;;***
 
 ;;;### (autoloads nil nil ("ddskk-pkg.el" "skk-act.el" "skk-azik.el"
-;;;;;;  "skk-hint.el" "skk-search-web.el" "skk-sticky.el") (22236
-;;;;;;  6465 389498 0))
+;;;;;;  "skk-hint.el" "skk-search-web.el" "skk-sticky.el") (22379
+;;;;;;  24506 13325 0))
 
 ;;;***
 
