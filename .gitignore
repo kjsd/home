@@ -1,0 +1,7 @@
+/*
+!/.emacs.d/
+/.emacs.d/*.dat
+/.emacs.d/tramp
+/.emacs.d/auto-save-list
+!/lib/dircolors
+!/.zshrc
