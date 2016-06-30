@@ -304,7 +304,7 @@ bindkey "^I" expand-my-abbrev-or-complete
 # 必要に応じて追加すると良い。基本的な設定は以下の通り。
 #
 autoload -U compinit
-compinit
+compinit -u
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
