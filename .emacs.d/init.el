@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-06-23 13:00:41 minoru>
+;;                            Time-stamp: <2016-06-28 23:50:41 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -268,19 +268,20 @@
 ;;   M-x yatex とするか、.tex で終わるファイルを読み込むと起動します
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; (autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-; (autoload 'yahtml-mode "yahtml" "Yet Another HTML mode" t)
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+;(autoload 'yahtml-mode "yahtml" "Yet Another HTML mode" t)
 
 ;; ;; *.tex *.html の拡張子を持つファイルを開いた場合，
 ;; ;; それぞれ yatex-mode, yahtml-mode にする．
-; (setq auto-mode-alist
-;       (cons (cons "\\.tex$" 'yatex-mode)
-; 	    auto-mode-alist))
+(setq auto-mode-alist
+       (cons (cons "\\.tex$" 'yatex-mode)
+ 	    auto-mode-alist))
 ; (setq auto-mode-alist
 ;       (cons (cons "\\.html$" 'yahtml-mode)
 ; 	    auto-mode-alist))
 
-;; (setq YaTeX-kanji-code 3)	; EUCにする
+(setq YaTeX-kanji-code nil)
+; (setq YaTeX-kanji-code 3)	; EUCにする
 ;; (setq yahtml-kanji-code 1)	; SJISにする
 ;(setq YaTeX-kanji-code 4)	; UTF-8
 ;(setq yahtml-kanji-code 4)	; UTF-8
@@ -349,6 +350,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(setq-default auto-fill-function 'do-auto-fill)
 
 ;;; my-c-mode
 ;(setq cpp-known-face 'invisible)
@@ -373,7 +375,6 @@
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
   ;; (c-set-style "linux")
-  (turn-on-auto-fill)
   (setq tab-width 4)
   (setq c-basic-offset 4)
   (setq c-tab-always-indent t)
@@ -396,29 +397,19 @@
        '(("\\.js$" . js2-mode))
        '(("\\.json$" . js-mode))
        '(("\\.gs$" . js2-mode))
-       '(("\\.html$" . xml-mode))
-       '(("\\.xml$" . xml-mode))
        '(("\\.d[i]?\\'" . d-mode))
        '(("\\.go$'" . go-mode))
+       '(("\\.phtml\\'" . web-mode))
+       '(("\\.phtml\\'" . web-mode))
+       '(("\\.phtml\\'" . web-mode))
+       '(("\\.tpl\\.php\\'" . web-mode))
+       '(("\\.[gj]sp\\'" . web-mode))
+       '(("\\.as[cp]x\\'" . web-mode))
+       '(("\\.erb\\'" . web-mode))
+       '(("\\.mustache\\'" . web-mode))
+       '(("\\.djhtml\\'" . web-mode))
+       '(("\\.html?\\'" . web-mode))
        auto-mode-alist))
-
-;;; text-mode
-(add-hook 'text-mode-hook
-	  '(lambda ()
-	     (turn-on-auto-fill)
-         ))
-
-;; perl-mode
-(add-hook 'perl-mode-hook
-    '(lambda ()
-       (turn-on-auto-fill)
-       ))
-
-;; PHP-mode
-(require 'php-mode)
-;; To use abbrev-mode, add lines like this:
-(add-hook 'php-mode-user-hook
-    '(lambda () (define-abbrev php-mode-abbrev-table "ex" "extends")))
 
 ;; js2-mode
 (defun indent-and-back-to-indentation ()
@@ -455,7 +446,6 @@
 (autoload 'go-mode "go-mode" "Go language mode" t)
 (add-hook 'go-mode-hook
 	  '(lambda ()
-         (turn-on-auto-fill)
          (setq tab-width 4)
          (setq c-basic-offset 4)
          (setq c-tab-always-indent t)
@@ -467,80 +457,23 @@
 ;(setq erlang-root-dir "/usr/local/opt/erlang")
 ;(require 'erlang-start)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; mmm-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; mmm-mode
-(require 'mmm-mode)
-;; 色設定．これは，好みで．色をつけたくないなら nil にします．
-;(set-face-background 'mmm-default-submode-face "nil")
-
-(mmm-add-mode-ext-class nil "html?\\'" 'html-others)
-(add-hook 'xml-mode-hook
-          '(lambda ()
-	     (setq mmm-classes '(html-others)) ;; 使用するmmm-add-groupの設定
-	     (mmm-mode)))
-
-(require 'mmm-auto)
-(setq mmm-global-mode 'maybe)
-(setq mmm-submode-decoration-level 2)
-(invert-face 'mmm-default-submode-face t)
-(setq mmm-font-lock-available-p t)
-(mmm-add-group
- 'html-others
- '((php-output
-    :submode php-mode
-    :front "<\\?php *echo "
-    :back "\\?>"
-    :include-front t
-    :front-offset 5
-    :insert ((?e php-echo nil @ "<?php" @ " echo " _ " " @ "?>" @)))
-   (php-code
-    :submode php-mode
-    :front "<\\?\\(php\\)?"
-    :back "\\?>"
-    :insert ((?p php-section nil @ "<?php" @ " " _ " " @ "?>" @)
-	     (?b php-block nil @ "<?php" @ "\n" _ "\n" @ "?>" @)))
-   (css-code
-    :submode css-mode
-    :delimiter-mode nil
-    :front "<style[^>]*>"
-    :back "</style>")
-   (css-inline
-    :submode css-mode
-    :front "\\bstyle=\\s-*\""
-    :back "\"")
-   (js-code
-    :submode js2-mode
-    :delimiter-mode nil
-    :front "<script\[^>\]*\\(language=\"javascript\\([0-9.]*\\)\"\\|type=\"text/javascript\"\\)\[^>\]*>"
-    :back"</script>"
-    :insert ((?j js-tag nil @ "<script type=\"text/javascript\">"
-                 @ "\n" _ "\n" @ "</script>" @)))
-   (js-inline
-    :submode javascript-mode
-    :delimiter-mode nil
-    :front "on\\w+=\""
-    :back "\"")
-   ))
-
-;; mmmで基本となるmajor-modeの設定する
-(setq switch-mmm-major-mode 'xml-mode)
-;; major-modeとsubmodeを切り替える
-(defun switch-mmm-major-sub ()
-  (interactive)
-  (if (and (boundp 'mmm-current-submode)
-           (not (eq mmm-current-submode nil)))
-      (funcall mmm-current-submode)
-    (funcall switch-mmm-major-mode)
-    (mmm-mode-on)
-    (mmm-parse-buffer))
+;; web-mode (obsolated mmm-mode)
+(require 'web-mode)
+(defun my-web-mode-hook ()
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-engines-alist
+        '(("php"    . "\\.phtml\\'")
+          ("blade"  . "\\.blade\\.")))
   )
-(add-hook 'mmm-mode-hook
-          '(lambda ()
-             (define-key mmm-mode-map "\C-cm" 'mmm-parse-buffer))) ;; バッファをparseしなおす
-(define-key global-map "\C-cl" 'switch-mmm-major-sub) ;; モードを切り替える
+
+(add-hook 'web-mode-hook 'my-web-mode-hook)
+
+(custom-set-faces
+ '(web-mode-html-tag-face
+   ((t (:foreground "#00bfff"))))
+ )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; w3m
