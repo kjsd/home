@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-06-28 23:50:41 minoru>
+;;                            Time-stamp: <2016-07-09 11:09:45 admin>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -123,7 +123,7 @@
       (when darwin-p
         (progn
           (create-fontset-from-ascii-font
-           "Ricty-14:weight=normal:slant=normal" nil "default")
+           "Ricty Diminished-14:weight=normal:slant=normal" nil "default")
           (set-fontset-font "fontset-default"
                             'unicode
                             (font-spec :family "Ricty" :size 14)
