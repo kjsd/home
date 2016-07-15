@@ -332,6 +332,8 @@ zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^/' reverse-menu-complete
 
+__git_files() { _files }
+
 #-----------------------------------------------------------------
 # 補完ルール設定
 #-----------------------------------------------------------------
