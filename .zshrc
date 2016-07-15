@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-06-22 02:23:28 minoru>
+#                            Time-stamp: <2016-07-15 14:55:19 12800190S>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -304,7 +304,7 @@ bindkey "^I" expand-my-abbrev-or-complete
 # 必要に応じて追加すると良い。基本的な設定は以下の通り。
 #
 autoload -U compinit
-compinit -u
+compinit -C
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B%d%b'
