@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-07-22 13:53:32 12800190S>
+#                            Time-stamp: <2016-07-28 10:14:59 12800190S>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -146,42 +146,42 @@ RPROMPT='[%~]'
 # 
 setopt  always_last_prompt      # 無駄なスクロールを避ける
 setopt  append_history          # ヒストリファイルに追加
-setopt  auto_list                       # 自動的に候補一覧を表示
-setopt  auto_menu                       # 自動的にメニュー補完する
+#setopt  auto_list               # 自動的に候補一覧を表示
+#setopt  auto_menu               # 自動的にメニュー補完する
 #setopt auto_name_dirs          # "~$var" でディレクトリにアクセス
 setopt  auto_param_keys         # 変数名を補完する
 setopt  auto_remove_slash       # 接尾辞を削除する
-setopt  bang_hist                       # csh スタイルのヒストリ置換
+#setopt  bang_hist                       # csh スタイルのヒストリ置換
 setopt  brace_ccl                       # {a-za-z} をブレース展開
-setopt  cdable_vars                     # 先頭に "~" を付けたもので展開
-setopt  complete_in_word        # 語の途中でもカーソル位置で補完
+#setopt  cdable_vars                     # 先頭に "~" を付けたもので展開
+#setopt  complete_in_word        # 語の途中でもカーソル位置で補完
 setopt  complete_aliases        # 補完動作の解釈前にエイリアス展開
-setopt  extended_glob           # "#", "~", "^" を正規表現として扱う
-setopt  extended_history        # 開始/終了タイムスタンプを書き込み
+#setopt  extended_glob           # "#", "~", "^" を正規表現として扱う
+#setopt  extended_history        # 開始/終了タイムスタンプを書き込み
 #setopt hist_verify                     # ヒストリ置換を実行前に表示
-#setopt glob_dots                       # "*" にドットファイルをマッチ
+setopt glob_dots                       # "*" にドットファイルをマッチ
 setopt  hist_ignore_dups        # 直前のヒストリと全く同じとき無視
 setopt  hist_ignore_space       # 先頭がスペースで始まるとき無視
 setopt  list_types                      # ファイル種別を表す記号を末尾に表示
 setopt  magic_equal_subst       # "val=expr" でファイル名展開
 #setopt menu_complete           # 一覧表示せずに、すぐに最初の候補を補完
 setopt  multios                         # 複数のリダイレクトやパイプに対応
-setopt  numeric_glob_sort       # ファイル名を数値的にソート
-setopt  noclobber                       # リダイレクトで上書き禁止
+#setopt  numeric_glob_sort       # ファイル名を数値的にソート
+#setopt  noclobber                       # リダイレクトで上書き禁止
 #setopt no_beep                         # ベルを鳴らさない
-#setopt no_check_jobs           # シェル終了時にジョブをチェックしない 
-setopt  no_flow_control         # C-s/C-q によるフロー制御をしない
-setopt  no_hup                          # 走行中のジョブにシグナルを送らない
-setopt  no_list_beep            # 補完の時にベルを鳴らさない
+#setopt no_check_jobs           # シェル終了時にジョブをチェックしない
+#setopt  no_flow_control         # C-s/C-q によるフロー制御をしない
+#setopt  no_hup                          # 走行中のジョブにシグナルを送らない
+#setopt  no_list_beep            # 補完の時にベルを鳴らさない
 #setopt  notify                          # ジョブの状態をただちに知らせる
 setopt  prompt_subst            # プロンプト内で変数展開
 setopt  pushd_ignore_dups       # 重複するディレクトリを無視
 setopt  rm_star_silent          # "rm * " を実行する前に確認
-setopt  sun_keyboard_hack       # 行末の "` (バッククウォート)" を無視
-setopt  sh_word_split           # 変数内の文字列分解のデリミタ
-setopt  histallowclobber        # ">" を ">!" としてヒストリ保存
-setopt  printeightbit           # 8ビットクリーン表示→うまく動作せず
-setopt  share_history
+#setopt  sun_keyboard_hack       # 行末の "` (バッククウォート)" を無視
+#setopt  sh_word_split           # 変数内の文字列分解のデリミタ
+#setopt  histallowclobber        # ">" を ">!" としてヒストリ保存
+#setopt  printeightbit           # 8ビットクリーン表示→うまく動作せず
+#setopt  share_history
 #setopt autopushd
 
 #-----------------------------------------------------------------
@@ -198,9 +198,9 @@ setopt  share_history
 eval $(dircolors ~/lib/dircolors/dircolors.ansi-light)
 LS_OPTIONS='-F --color=auto'
 
-alias ls='ls $LS_OPTIONS'
-alias dir='dir $LS_OPTIONS';
-alias vdir='vdir $LS_OPTIONS';
+alias ls="ls $LS_OPTIONS"
+alias dir="dir $LS_OPTIONS"
+alias vdir="vdir $LS_OPTIONS"
 alias la='ls -a'
 alias ll='ls -lF'
 alias h='history 20'
