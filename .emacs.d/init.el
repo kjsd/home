@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-07-28 15:16:07 12800190S>
+;;                            Time-stamp: <2016-07-28 15:38:20 12800190S>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -560,11 +560,25 @@
 ;(setq gtags-path-style 'relative)
 (setq gtags-mode-hook
       '(lambda ()
-	 (local-set-key "\M-." 'gtags-find-tag)
-	 (local-set-key "\M-r" 'gtags-find-rtag)
-	 (local-set-key "\M-s" 'gtags-find-symbol)
-	 (local-set-key "\C-t" 'gtags-pop-stack)
-	 ))
+         (local-set-key "\M-." 'gtags-find-tag)
+         (local-set-key "\M-r" 'gtags-find-rtag)
+         (local-set-key "\M-s" 'gtags-find-symbol)
+         (local-set-key "\C-t" 'gtags-pop-stack)
+         ))
+(setq gtags-select-mode-hook
+      '(lambda ()
+         (local-set-key "\C-t" 'gtags-pop-stack)
+         (local-set-key [return] 'gtags-select-tag)
+         ))
+
+(defun my-c-mode-update-gtags ()
+  (let* ((file (buffer-file-name (current-buffer)))
+         (dir (directory-file-name (file-name-directory file))))
+    (when (executable-find "global")
+      (start-process "gtags-update" nil
+                     "global" "-uv"))))
+
+(add-hook 'after-save-hook 'my-c-mode-update-gtags)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-complete
