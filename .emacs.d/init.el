@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-07-09 11:09:45 admin>
+;;                            Time-stamp: <2016-07-28 14:27:43 12800190S>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -423,8 +423,8 @@
 (add-hook 'js2-mode-hook
           '(lambda ()
              (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)))
-;(setq js2-basic-offset 4)
 (setq js2-auto-indent-flag      nil
+      js2-basic-offset 2
       js2-indent-tabs-mode nil
       js2-cleanup-whitespace    nil
       js2-enter-indents-newline nil
