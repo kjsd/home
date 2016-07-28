@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-07-28 10:14:59 12800190S>
+#                            Time-stamp: <2016-07-28 15:16:31 12800190S>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -330,7 +330,7 @@ zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^/' reverse-menu-complete
 
-__git_files() { _files }
+#__git_files() { _files }
 
 #-----------------------------------------------------------------
 # 補完ルール設定

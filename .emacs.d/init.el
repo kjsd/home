@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-07-28 14:43:51 12800190S>
+;;                            Time-stamp: <2016-07-28 15:16:07 12800190S>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -375,17 +375,19 @@
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
   ;; (c-set-style "linux")
-  (setq c-basic-offset 2)
+  (setq c-basic-offset 4)
   (setq c-tab-always-indent t)
   (setq c-comment-only-line-offset 0)
   (setq indent-tabs-mode nil)
   (setq c-echo-syntactic-infomation-p t)
+  (setq c-hungry-delete-key t)
   (gtags-mode 1)
   (cpp-highlight-buffer t)
   (auto-complete-mode)
   )
 
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-hook 'my-c-mode-common-hook)
 
 (setq auto-mode-alist
       (append
