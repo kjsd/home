@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-07-28 14:27:43 12800190S>
+;;                            Time-stamp: <2016-07-28 14:43:51 12800190S>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -375,8 +375,7 @@
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
   ;; (c-set-style "linux")
-  (setq tab-width 4)
-  (setq c-basic-offset 4)
+  (setq c-basic-offset 2)
   (setq c-tab-always-indent t)
   (setq c-comment-only-line-offset 0)
   (setq indent-tabs-mode nil)
@@ -387,7 +386,6 @@
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'xml-mode-hook 'my-c-mode-common-hook)
 
 (setq auto-mode-alist
       (append
@@ -446,10 +444,8 @@
 (autoload 'go-mode "go-mode" "Go language mode" t)
 (add-hook 'go-mode-hook
 	  '(lambda ()
-         (setq tab-width 4)
-         (setq c-basic-offset 4)
+         (setq c-basic-offset 2)
          (setq c-tab-always-indent t)
-         (setq indent-tabs-mode nil)
          ))
 
 ;(setq load-path (cons "/usr/local/opt/erlang/lib/erlang/lib/tools-2.8.3/emacs"
