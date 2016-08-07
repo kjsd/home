@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-07-28 15:16:31 12800190S>
+#                            Time-stamp: <2016-08-07 09:39:47 admin>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -170,7 +170,7 @@ setopt  multios                         # 複数のリダイレクトやパイ�
 #setopt  noclobber                       # リダイレクトで上書き禁止
 #setopt no_beep                         # ベルを鳴らさない
 #setopt no_check_jobs           # シェル終了時にジョブをチェックしない
-#setopt  no_flow_control         # C-s/C-q によるフロー制御をしない
+setopt  no_flow_control         # C-s/C-q によるフロー制御をしない
 #setopt  no_hup                          # 走行中のジョブにシグナルを送らない
 #setopt  no_list_beep            # 補完の時にベルを鳴らさない
 #setopt  notify                          # ジョブの状態をただちに知らせる
