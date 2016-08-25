@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-08-07 09:39:47 admin>
+#                            Time-stamp: <2016-08-25 09:11:28 12800190S>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -23,8 +23,8 @@ export PATH="$HOME/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/opt/c
 
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
-export PAGER=less
-#export PAGER="lv -Ou8 -c -s"
+#export PAGER=less
+export PAGER="lv -Ou8 -c -s"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
