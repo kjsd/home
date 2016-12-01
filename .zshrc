@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-08-25 09:11:28 12800190S>
+#                            Time-stamp: <2016-12-02 00:24:09 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -19,14 +19,17 @@ SHELL=/bin/zsh
 export SHELL
 
 # set path
-export PATH="$HOME/bin:$HOME/Library/Android/sdk/platform-tools:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
 #export PAGER=less
 export PAGER="lv -Ou8 -c -s"
 
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+#-----------------------------------------------------------------
+# ローカル設定の読み込み
+#-----------------------------------------------------------------
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 #-----------------------------------------------------------------
 # 非端末プロセスなら終了
@@ -340,11 +343,6 @@ bindkey '^o^/' reverse-menu-complete
 # システム別設定
 #-----------------------------------------------------------------
 
-
-#-----------------------------------------------------------------
-# ローカル設定の読み込み
-#-----------------------------------------------------------------
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 #echo Now zsh version $ZSH_VERSION start!
 
