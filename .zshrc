@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2016-12-02 00:24:09 minoru>
+#                            Time-stamp: <2017-01-11 14:26:47 ibs>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -159,7 +159,7 @@ setopt  brace_ccl                       # {a-za-z} をブレース展開
 #setopt  cdable_vars                     # 先頭に "~" を付けたもので展開
 #setopt  complete_in_word        # 語の途中でもカーソル位置で補完
 setopt  complete_aliases        # 補完動作の解釈前にエイリアス展開
-#setopt  extended_glob           # "#", "~", "^" を正規表現として扱う
+setopt  extended_glob           # "#", "~", "^" を正規表現として扱う
 #setopt  extended_history        # 開始/終了タイムスタンプを書き込み
 #setopt hist_verify                     # ヒストリ置換を実行前に表示
 setopt glob_dots                       # "*" にドットファイルをマッチ
