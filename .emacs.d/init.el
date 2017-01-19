@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-01-11 20:48:58 minoru>
+;;                            Time-stamp: <2017-01-19 21:47:36 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -60,7 +60,7 @@
               '("/opt/local/share/emacs/site-lisp")
               load-path))
 
-(when emacs24-p
+(when (>= emacs-major-version 24)
   (progn
     (package-initialize)
     (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -113,10 +113,10 @@
       (when windows-p
         (progn
           (create-fontset-from-ascii-font
-           "Inconsolata-11:weight=normal:slant=normal" nil "default")
+           "Ricty Diminished-11:weight=normal:slant=normal" nil "default")
           (set-fontset-font "fontset-default"
                             'unicode
-                            (font-spec :family "MeiryoKe_Console" :size 14)
+                            (font-spec :family "Ricty" :size 11)
                             nil
                             'append)
           ))
@@ -146,8 +146,8 @@
       (set-scroll-bar-mode 'left)
       (setq default-frame-alist
             (append
-              '((foreground-color . "white")
-                (background-color . "black")
+              '(;(foreground-color . "white")
+                ;(background-color . "black")
                 (font . "fontset-default")
                 (alpha . 80)
                 (height . 38)
@@ -163,7 +163,7 @@
 ;    (if window-system (menu-bar-mode 1) (menu-bar-mode -1))
 ;    )
 )
-(setq frame-background-mode 'dark)
+;(setq frame-background-mode 'dark)
 
 ;;; 最終更新日の自動挿入
 ;;;   ファイルの先頭から 8 行以内に Time-stamp: <> または
@@ -401,18 +401,17 @@
        '(("\\.js$" . js2-mode))
        '(("\\.json$" . js-mode))
        '(("\\.gs$" . js2-mode))
-       '(("\\.d[i]?\\'" . d-mode))
-       '(("\\.go$'" . go-mode))
-       '(("\\.phtml\\'" . web-mode))
-       '(("\\.phtml\\'" . web-mode))
-       '(("\\.phtml\\'" . web-mode))
-       '(("\\.tpl\\.php\\'" . web-mode))
-       '(("\\.[gj]sp\\'" . web-mode))
-       '(("\\.as[cp]x\\'" . web-mode))
-       '(("\\.erb\\'" . web-mode))
-       '(("\\.mustache\\'" . web-mode))
-       '(("\\.djhtml\\'" . web-mode))
-       '(("\\.html?\\'" . web-mode))
+       '(("\\.d[i]?$'" . d-mode))
+       '(("\\.go$" . go-mode))
+       '(("\\.phtml$'" . web-mode))
+       '(("\\.tpl$" . web-mode))
+       '(("\\.php$" . web-mode))
+       '(("\\.[gj]sp$" . web-mode))
+       '(("\\.as[cp]x$" . web-mode))
+       '(("\\.erb$" . web-mode))
+       '(("\\.mustache$" . web-mode))
+       '(("\\.djhtml$" . web-mode))
+       '(("\\.html?$" . web-mode))
        auto-mode-alist))
 
 ;; js2-mode
@@ -466,16 +465,18 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-engines-alist
-        '(("php"    . "\\.phtml\\'")
-          ("blade"  . "\\.blade\\.")))
+        '(("php"    . "\\.phtml$")
+          ("blade"  . "\\.blade$")))
   )
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 
 (custom-set-faces
- '(web-mode-html-tag-face
-   ((t (:foreground "#00bfff"))))
- )
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(web-mode-html-tag-face ((t (:foreground "#00bfff")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; w3m
@@ -633,10 +634,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+    ("f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" default)))
+ '(package-selected-packages
+   (quote
+    (yatex web-mode w3m packed mic-paren js2-mode gtags fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install auto-complete))))
+
