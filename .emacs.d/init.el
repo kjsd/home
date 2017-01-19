@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2016-07-28 15:38:20 12800190S>
+;;                            Time-stamp: <2017-01-11 20:48:58 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -246,6 +246,9 @@
 
 ;; 標準の skk-kutouten-type
 (setq-default skk-kutouten-type 'en) ;; `jp' or `en'
+(setq skk-rom-kana-rule-list
+      '(("?" nil "？")
+        ("!" nil "！")))
 
 ;; C-x C-. で句読点の種類をトグル
 (define-key ctl-x-map [?\C-.] 'skk-toggle-kutouten)
@@ -388,6 +391,7 @@
 
 (add-hook 'c-mode-hook 'my-c-mode-common-hook)
 (add-hook 'c++-mode-hook 'my-c-mode-common-hook)
+(add-hook 'java-mode-hook 'my-c-mode-common-hook)
 
 (setq auto-mode-alist
       (append
@@ -571,14 +575,14 @@
          (local-set-key [return] 'gtags-select-tag)
          ))
 
-(defun my-c-mode-update-gtags ()
-  (let* ((file (buffer-file-name (current-buffer)))
-         (dir (directory-file-name (file-name-directory file))))
-    (when (executable-find "global")
-      (start-process "gtags-update" nil
-                     "global" "-uv"))))
+;(defun my-c-mode-update-gtags ()
+;  (let* ((file (buffer-file-name (current-buffer)))
+;         (dir (directory-file-name (file-name-directory file))))
+;    (when (executable-find "global")
+;      (start-process "gtags-update" nil
+;                     "global" "-uv"))))
 
-(add-hook 'after-save-hook 'my-c-mode-update-gtags)
+;(add-hook 'after-save-hook 'my-c-mode-update-gtags)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; auto-complete
