@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-01-19 21:47:36 minoru>
+;;                            Time-stamp: <2017-02-14 20:18:33 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -425,16 +425,16 @@
     (skip-chars-forward "%s " point-of-indentation)))
 (add-hook 'js2-mode-hook
           '(lambda ()
-             (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)))
-(setq js2-auto-indent-flag      nil
-      js2-basic-offset 2
-      js2-indent-tabs-mode nil
-      js2-cleanup-whitespace    nil
-      js2-enter-indents-newline nil
-      js2-mirror-mode           nil
-      js2-mode-escape-quotes    nil
-      js2-mode-squeeze-spaces   nil
-      js2-rebind-eol-bol-keys   nil)
+             (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)
+             (setq js2-auto-indent-flag      nil
+                   js2-basic-offset 2
+                   js2-indent-tabs-mode nil
+                   js2-cleanup-whitespace    nil
+                   js2-enter-indents-newline nil
+                   js2-mirror-mode           nil
+                   js2-mode-escape-quotes    nil
+                   js2-mode-squeeze-spaces   nil
+                   js2-rebind-eol-bol-keys   nil)))
 
 ;; d-mode
 (autoload 'd-mode "d-mode" "Major mode for editing D code." t)

@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2017-01-11 14:26:47 ibs>
+#                            Time-stamp: <2017-02-11 18:58:01 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -240,6 +240,7 @@ word_abbrev=(
 	"lt"	"| tail"
 	"work"	"~/Documents/work"
 	"proj"	"~/Documents/work/project"
+	"extp"	"~/Documents/work/external_project"
 )
 
 # パイプに対する補完
