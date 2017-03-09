@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2017-02-11 18:58:01 minoru>
+#                            Time-stamp: <2017-03-09 11:06:08 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -220,6 +220,7 @@ alias reload="source ~/.zshrc"
 alias hd=hexdump
 alias secon='umask 027'
 alias secoff='umask 022'
+alias cleanup="rm -rf ~/Downloads/* ~/tmp/empty/*"
 
 #-----------------------------------------------------------------
 # キーバインド設定
@@ -240,7 +241,7 @@ word_abbrev=(
 	"lt"	"| tail"
 	"work"	"~/Documents/work"
 	"proj"	"~/Documents/work/project"
-	"extp"	"~/Documents/work/external_project"
+	"eproj"	"~/Documents/work/external_project"
 )
 
 # パイプに対する補完
