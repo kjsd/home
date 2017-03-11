@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-02-14 20:18:33 minoru>
+;;                            Time-stamp: <2017-03-10 23:29:43 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -412,6 +412,7 @@
        '(("\\.mustache$" . web-mode))
        '(("\\.djhtml$" . web-mode))
        '(("\\.html?$" . web-mode))
+       '(("\\.ejs$" . web-mode))
        auto-mode-alist))
 
 ;; js2-mode
