@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-01-13 14:48:14 ibs>
+;;                            Time-stamp: <2017-02-16 11:52:50 ibs>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -187,7 +187,7 @@
 ;(column-number-mode t)
 
 ;;; 自動改行時の一行の文字数
-(setq fill-column 80)
+(setq fill-column 100)
 
 ;;; カーソルが行頭にあるときに，C-k 1回で その行全体を削除
 ;(setq kill-whole-line t)
@@ -408,6 +408,7 @@
        '(("\\.mustache$" . web-mode))
        '(("\\.djhtml$" . web-mode))
        '(("\\.html?$" . web-mode))
+       '(("\\.ejs?$" . web-mode))
        auto-mode-alist))
 
 ;; js2-mode
@@ -421,16 +422,16 @@
     (skip-chars-forward "%s " point-of-indentation)))
 (add-hook 'js2-mode-hook
           '(lambda ()
-             (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)))
-(setq js2-auto-indent-flag      nil
-      js2-basic-offset 2
-      js2-indent-tabs-mode nil
-      js2-cleanup-whitespace    nil
-      js2-enter-indents-newline nil
-      js2-mirror-mode           nil
-      js2-mode-escape-quotes    nil
-      js2-mode-squeeze-spaces   nil
-      js2-rebind-eol-bol-keys   nil)
+             (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)
+             (setq js2-auto-indent-flag      nil
+                   js2-basic-offset 2
+                   js2-indent-tabs-mode nil
+                   js2-cleanup-whitespace    nil
+                   js2-enter-indents-newline nil
+                   js2-mirror-mode           nil
+                   js2-mode-escape-quotes    nil
+                   js2-mode-squeeze-spaces   nil
+                   js2-rebind-eol-bol-keys   nil)))
 
 ;; d-mode
 (autoload 'd-mode "d-mode" "Major mode for editing D code." t)
@@ -444,6 +445,13 @@
 ;; go-mode
 (autoload 'go-mode "go-mode" "Go language mode" t)
 (add-hook 'go-mode-hook
+	  '(lambda ()
+         (setq c-basic-offset 2)
+         (setq c-tab-always-indent t)
+         ))
+
+;; js-mode
+(add-hook 'js-mode-hook
 	  '(lambda ()
          (setq c-basic-offset 2)
          (setq c-tab-always-indent t)
