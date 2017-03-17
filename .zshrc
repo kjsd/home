@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2017-01-20 12:25:18 ibs>
+#                            Time-stamp: <2017-03-10 22:58:00 minoru>
 # $Id: $
 #-----------------------------------------------------------------
 # 基本設定
@@ -186,6 +186,7 @@ setopt  rm_star_silent          # "rm * " を実行する前に確認
 #setopt  printeightbit           # 8ビットクリーン表示→うまく動作せず
 #setopt  share_history
 #setopt autopushd
+setopt nonomatch
 
 #-----------------------------------------------------------------
 # エイリアス設定
@@ -220,6 +221,7 @@ alias reload="source ~/.zshrc"
 alias hd=hexdump
 alias secon='umask 027'
 alias secoff='umask 022'
+alias cleanup="rm -rf ~/Downloads/* ~/tmp/empty/*"
 
 #-----------------------------------------------------------------
 # キーバインド設定
@@ -241,6 +243,7 @@ word_abbrev=(
 	"lt"	"| tail"
 	"work"	"~/Documents/work"
 	"proj"	"~/Documents/work/project"
+	"eproj"	"~/Documents/work/external_project"
 )
 
 # パイプに対する補完
