@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-03-10 23:29:43 minoru>
+;;                            Time-stamp: <2017-05-13 17:50:41 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -413,6 +413,7 @@
        '(("\\.djhtml$" . web-mode))
        '(("\\.html?$" . web-mode))
        '(("\\.ejs$" . web-mode))
+       '(("\\.twig$" . web-mode))
        auto-mode-alist))
 
 ;; js2-mode
@@ -628,15 +629,3 @@
 
 (cd "~")
 ;; .emacs ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" default)))
- '(package-selected-packages
-   (quote
-    (yatex web-mode w3m packed mic-paren js2-mode gtags fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install auto-complete))))
-
