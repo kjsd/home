@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-05-13 17:50:41 minoru>
+;;                            Time-stamp: <2017-05-13 17:54:23 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -351,7 +351,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; モード別設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq-default tab-width 4)
+;(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default auto-fill-function 'do-auto-fill)
 
@@ -373,15 +373,15 @@
 (defun my-c-mode-common-hook ()
   ;; (c-set-style "gnu")
   ;; (c-set-style "k&r")
-  (c-set-style "bsd")
+  ;; (c-set-style "bsd")
   ;; (c-set-style "stroustrup")
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
-  ;; (c-set-style "linux")
-  (setq c-basic-offset 4)
-  (setq c-tab-always-indent t)
-  (setq c-comment-only-line-offset 0)
-  (setq indent-tabs-mode nil)
+  (c-set-style "linux")
+  ;;(setq c-basic-offset 4)
+  ;;(setq c-tab-always-indent t)
+  ;;(setq c-comment-only-line-offset 0)
+  (setq indent-tabs-mode t)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
   (gtags-mode 1)
@@ -450,6 +450,13 @@
 ;; go-mode
 (autoload 'go-mode "go-mode" "Go language mode" t)
 (add-hook 'go-mode-hook
+	  '(lambda ()
+         (setq c-basic-offset 2)
+         (setq c-tab-always-indent t)
+         ))
+
+;; js-mode
+(add-hook 'js-mode-hook
 	  '(lambda ()
          (setq c-basic-offset 2)
          (setq c-tab-always-indent t)

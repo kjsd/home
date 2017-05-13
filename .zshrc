@@ -234,6 +234,7 @@ bindkey -e
 # 単語（空白文字で区切られているもの）に対する補完
 typeset -A word_abbrev
 word_abbrev=(
+    $word_abbrev_local
 	"tar"	"czvf"
 	"le"	"| $PAGER"
 	"lg"	"| grep"
