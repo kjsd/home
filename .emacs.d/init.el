@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-05-13 17:54:23 minoru>
+;;                            Time-stamp: <2017-05-13 18:01:10 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -152,6 +152,7 @@
                 (alpha . 80)
                 (height . 38)
                 (width . 80)
+                (cursor-color . "white")
                 (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
 ;                (line-spacing . 0)
               )
