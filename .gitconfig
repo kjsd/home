@@ -5,3 +5,5 @@
 	email = info@kandj.org
 [push]
 	default = simple
+[core]
+	ignorecase = false

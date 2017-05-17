@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-03-10 23:29:43 minoru>
+;;                            Time-stamp: <2017-05-13 18:01:10 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -152,6 +152,7 @@
                 (alpha . 80)
                 (height . 38)
                 (width . 80)
+                (cursor-color . "white")
                 (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
 ;                (line-spacing . 0)
               )
@@ -187,7 +188,7 @@
 ;(column-number-mode t)
 
 ;;; 自動改行時の一行の文字数
-(setq fill-column 100)
+(setq fill-column 80)
 
 ;;; カーソルが行頭にあるときに，C-k 1回で その行全体を削除
 ;(setq kill-whole-line t)
@@ -351,7 +352,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; モード別設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(setq-default tab-width 4)
+;(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default auto-fill-function 'do-auto-fill)
 
@@ -373,15 +374,15 @@
 (defun my-c-mode-common-hook ()
   ;; (c-set-style "gnu")
   ;; (c-set-style "k&r")
-  (c-set-style "bsd")
+  ;; (c-set-style "bsd")
   ;; (c-set-style "stroustrup")
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
-  ;; (c-set-style "linux")
-  (setq c-basic-offset 4)
-  (setq c-tab-always-indent t)
-  (setq c-comment-only-line-offset 0)
-  (setq indent-tabs-mode nil)
+  (c-set-style "linux")
+  ;;(setq c-basic-offset 4)
+  ;;(setq c-tab-always-indent t)
+  ;;(setq c-comment-only-line-offset 0)
+  (setq indent-tabs-mode t)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
   (gtags-mode 1)
@@ -413,6 +414,7 @@
        '(("\\.djhtml$" . web-mode))
        '(("\\.html?$" . web-mode))
        '(("\\.ejs$" . web-mode))
+       '(("\\.twig$" . web-mode))
        auto-mode-alist))
 
 ;; js2-mode
@@ -635,15 +637,3 @@
 
 (cd "~")
 ;; .emacs ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("f07583bdbcca020adecb151868c33820dfe3ad5076ca96f6d51b1da3f0db7105" default)))
- '(package-selected-packages
-   (quote
-    (yatex web-mode w3m packed mic-paren js2-mode gtags fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install auto-complete))))
-
