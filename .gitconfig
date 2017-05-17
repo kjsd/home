@@ -3,3 +3,5 @@
 [user]
 	name = Kenji MINOURA
 	email = info@kandj.org
+[push]
+	default = simple
