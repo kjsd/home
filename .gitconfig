@@ -7,5 +7,3 @@
 	default = simple
 [core]
 	ignorecase = false
-[http]
-	sslVerify = false
