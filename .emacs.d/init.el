@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-05-13 18:01:10 minoru>
+;;                            Time-stamp: <2017-09-12 10:18:56 ZZPV3735>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -113,10 +113,10 @@
       (when windows-p
         (progn
           (create-fontset-from-ascii-font
-           "Ricty Diminished-11:weight=normal:slant=normal" nil "default")
+           "Ricty-11:weight=normal:slant=normal" nil "default")
           (set-fontset-font "fontset-default"
                             'unicode
-                            (font-spec :family "Ricty" :size 11)
+                            (font-spec :family "Ricty" :size 14)
                             nil
                             'append)
           ))
