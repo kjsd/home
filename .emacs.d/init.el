@@ -2,11 +2,26 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-10-17 10:25:03 ZZPV3735>
+;;                            Time-stamp: <2017-10-17 10:53:15 ZZPV3735>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; マクロサーチパスの追加
+;;; ~/.emacs.d/lisp 以下にユーザ用の *.el, *.elc を置くことができます
+(let ((default-directory (expand-file-name "~/.emacs.d/lisp")))
+  (add-to-list 'load-path default-directory)
+  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+           (normal-top-level-add-subdirs-to-load-path)))
+
+(setq load-path
+      (append '("/usr/local/share/emacs/site-lisp")
+              '("/opt/local/share/emacs/site-lisp")
+              load-path))
+
+(eval-when-compile
+  (require 'use-package))
 
 ;;; 日本語環境 for Emacs21
 ;(require 'un-define)
@@ -47,18 +62,6 @@
       nt-p      (eq system-type 'windows-nt)
       meadow-p  (featurep 'meadow)
       windows-p (or cygwin-p nt-p meadow-p))
-
-;;; マクロサーチパスの追加
-;;; ~/.emacs.d/lisp 以下にユーザ用の *.el, *.elc を置くことができます
-(let ((default-directory (expand-file-name "~/.emacs.d/lisp")))
-  (add-to-list 'load-path default-directory)
-  (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-           (normal-top-level-add-subdirs-to-load-path)))
-
-(setq load-path
-      (append '("/usr/local/share/emacs/site-lisp")
-              '("/opt/local/share/emacs/site-lisp")
-              load-path))
 
 (when (>= emacs-major-version 24)
   (progn
@@ -352,7 +355,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; モード別設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(setq-default tab-width 4)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default auto-fill-function 'do-auto-fill)
 
@@ -382,7 +385,6 @@
   (setq c-basic-offset 4)
   ;;(setq c-tab-always-indent t)
   ;;(setq c-comment-only-line-offset 0)
-  (setq indent-tabs-mode nil)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
 
@@ -472,6 +474,7 @@
 ;; web-mode (obsolated mmm-mode)
 (require 'web-mode)
 (defun my-web-mode-hook ()
+  (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
@@ -633,7 +636,7 @@
 (unless (server-running-p)
   (server-start))
 
-(require 'local)
+(use-package init-local)
 
 (cd "~")
 ;; .emacs ends here
