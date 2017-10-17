@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-09-12 10:18:56 ZZPV3735>
+;;                            Time-stamp: <2017-10-17 10:25:03 ZZPV3735>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -113,7 +113,7 @@
       (when windows-p
         (progn
           (create-fontset-from-ascii-font
-           "Ricty-11:weight=normal:slant=normal" nil "default")
+           "Ricty-12:weight=normal:slant=normal" nil "default")
           (set-fontset-font "fontset-default"
                             'unicode
                             (font-spec :family "Ricty" :size 14)
@@ -201,7 +201,7 @@
 
 ;;; ~つきのバックアップファイルを作らない
 (setq make-backup-files nil)
-(setq auto-save-default nil)
+;(setq auto-save-default nil)
 (setq delete-auto-save-files t)
 
 ;;; visible-bell
@@ -379,15 +379,16 @@
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
   (c-set-style "linux")
-  ;;(setq c-basic-offset 4)
+  (setq c-basic-offset 4)
   ;;(setq c-tab-always-indent t)
   ;;(setq c-comment-only-line-offset 0)
-  (setq indent-tabs-mode t)
+  (setq indent-tabs-mode nil)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
+
   (gtags-mode 1)
   (cpp-highlight-buffer t)
-  (auto-complete-mode)
+  (setq company-backends (delete 'company-semantic company-backends))
   )
 
 (add-hook 'c-mode-hook 'my-c-mode-common-hook)
@@ -596,12 +597,9 @@
 ;(add-hook 'after-save-hook 'my-c-mode-update-gtags)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; auto-complete
+;; company-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")
-(ac-config-default)
-(global-auto-complete-mode t)
+(global-company-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 言語モード切り換え
@@ -635,5 +633,15 @@
 (unless (server-running-p)
   (server-start))
 
+(require 'local)
+
 (cd "~")
 ;; .emacs ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
