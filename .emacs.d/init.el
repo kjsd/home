@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-10-17 10:53:15 ZZPV3735>
+;;                            Time-stamp: <2017-11-21 13:18:22 ZZPV3735>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -383,18 +383,18 @@
   ;; (c-set-style "ellemtel")
   (c-set-style "linux")
   (setq c-basic-offset 4)
-  ;;(setq c-tab-always-indent t)
+  (setq c-tab-always-indent t)
   ;;(setq c-comment-only-line-offset 0)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
 
+  ;(ggtags-mode 1)
+  ;(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
   (gtags-mode 1)
   (cpp-highlight-buffer t)
-  (setq company-backends (delete 'company-semantic company-backends))
   )
 
-(add-hook 'c-mode-hook 'my-c-mode-common-hook)
-(add-hook 'c++-mode-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'java-mode-hook 'my-c-mode-common-hook)
 
 (setq auto-mode-alist
@@ -491,6 +491,45 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(web-mode-html-tag-face ((t (:foreground "#00bfff")))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; yasnippet
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;(use-package yasnippet
+;  :config
+;  ;; companyと競合するのでyasnippetのフィールド移動は "C-i" のみにする
+;  (define-key yas-keymap (kbd "<tab>") nil)
+;  (yas-global-mode 1)
+;  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; company-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package company
+  :config
+  (global-company-mode 1)
+  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; irony
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;(use-package irony
+;  :config
+;  (progn
+;    (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
+;    (add-to-list 'company-backends 'company-irony)
+;    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;    (add-hook 'c-mode-common-hook 'irony-mode t)
+;    )
+;  )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; flycheck
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;(use-package flycheck
+;  :config
+;  (global-flycheck-mode 1)
+;  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; w3m
@@ -590,20 +629,6 @@
          (local-set-key [return] 'gtags-select-tag)
          ))
 
-;(defun my-c-mode-update-gtags ()
-;  (let* ((file (buffer-file-name (current-buffer)))
-;         (dir (directory-file-name (file-name-directory file))))
-;    (when (executable-find "global")
-;      (start-process "gtags-update" nil
-;                     "global" "-uv"))))
-
-;(add-hook 'after-save-hook 'my-c-mode-update-gtags)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; company-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-company-mode 1)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 言語モード切り換え
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -645,6 +670,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(irony-additional-clang-options (quote ("-std=c++11")))
  '(package-selected-packages
    (quote
-    (company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
+    (lua-mode ggtags flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
