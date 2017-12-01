@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-11-21 13:18:22 ZZPV3735>
+;;                            Time-stamp: <2017-12-01 22:42:20 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -495,12 +495,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; yasnippet
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(use-package yasnippet
-;  :config
-;  ;; companyと競合するのでyasnippetのフィールド移動は "C-i" のみにする
-;  (define-key yas-keymap (kbd "<tab>") nil)
-;  (yas-global-mode 1)
-;  )
+(use-package yasnippet
+  :config
+  ;; companyと競合するのでyasnippetのフィールド移動は "C-i" のみにする
+  (define-key yas-keymap (kbd "<tab>") nil)
+  (yas-global-mode 1)
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; company-mode
@@ -513,23 +513,23 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; irony
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(use-package irony
-;  :config
-;  (progn
-;    (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
-;    (add-to-list 'company-backends 'company-irony)
-;    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-;    (add-hook 'c-mode-common-hook 'irony-mode t)
-;    )
-;  )
+(use-package irony
+  :config
+  (progn
+    (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
+    (add-to-list 'company-backends 'company-irony)
+    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+    (add-hook 'c-mode-common-hook 'irony-mode t)
+    )
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; flycheck
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(use-package flycheck
-;  :config
-;  (global-flycheck-mode 1)
-;  )
+(use-package flycheck
+  :config
+  (global-flycheck-mode 1)
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; w3m
