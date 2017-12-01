@@ -1,8 +1,6 @@
-;;; init-local.el --- local init
+;;; windows-cmode-domino.el --- cmode
 ;;; Commentary:
 ;;; Code:
-(provide 'init-local)
-
 
 (defun domino-c-mode-common-hook ()
   (setq c-basic-offset 3)
@@ -31,5 +29,4 @@
 
 (add-hook 'c-mode-common-hook 'domino-c-mode-common-hook t)
 
-;;; init-local.el ends here
-
+;;; windows-cmode-domino.el ends here

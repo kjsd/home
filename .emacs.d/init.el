@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-01 22:42:20 minoru>
+;;                            Time-stamp: <2017-12-02 00:14:50 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -10,10 +10,10 @@
 
 ;;; マクロサーチパスの追加
 ;;; ~/.emacs.d/lisp 以下にユーザ用の *.el, *.elc を置くことができます
-(let ((default-directory (expand-file-name "~/.emacs.d/lisp")))
+(let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
   (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-           (normal-top-level-add-subdirs-to-load-path)))
+      (normal-top-level-add-subdirs-to-load-path)))
 
 (setq load-path
       (append '("/usr/local/share/emacs/site-lisp")
@@ -22,6 +22,12 @@
 
 (eval-when-compile
   (require 'use-package))
+
+(use-package init-loader
+  :config
+  (setq init-loader-show-log-after-init nil)
+  (init-loader-load "~/.emacs.d/inits")
+  )
 
 ;;; 日本語環境 for Emacs21
 ;(require 'un-define)
@@ -35,45 +41,6 @@
 (setq file-name-coding-system 'utf-8)
 
 (defun x->bool (elt) (not (not elt)))
-
-;; emacs-version predicates
-(setq emacs22-p (string-match "^22" emacs-version)
-	  emacs23-p (string-match "^23" emacs-version)
-	  emacs23.0-p (string-match "^23\.0" emacs-version)
-	  emacs23.1-p (string-match "^23\.1" emacs-version)
-	  emacs23.2-p (string-match "^23\.2" emacs-version)
-	  emacs24-p (string-match "^24" emacs-version))
-
-;; system-type predicates
-(setq darwin-p  (eq system-type 'darwin)
-      ns-p      (eq window-system 'ns)
-      carbon-p  (eq window-system 'mac)
-      linux-p   (eq system-type 'gnu/linux)
-      colinux-p (when linux-p
-                  (let ((file "/proc/modules"))
-                    (and
-                     (file-readable-p file)
-                     (x->bool
-                      (with-temp-buffer
-                        (insert-file-contents file)
-                        (goto-char (point-min))
-                        (re-search-forward "^cofuse\.+" nil t))))))
-      cygwin-p  (eq system-type 'cygwin)
-      nt-p      (eq system-type 'windows-nt)
-      meadow-p  (featurep 'meadow)
-      windows-p (or cygwin-p nt-p meadow-p))
-
-(when (>= emacs-major-version 24)
-  (progn
-    (package-initialize)
-    (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-    (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-    (require 'auto-install)
-    (auto-install-compatibility-setup)
-    (load-theme 'dark-laptop t t)
-    (enable-theme 'dark-laptop)
-    ))
-
 
 ;;; C-h と Del の入れ替え
 ;;; Help が Shift + Ctrl + h および Del に割当てられ、
@@ -109,65 +76,6 @@
 ;;; メニューバーを日本語にします
 ;(if (equal (substring (concat (getenv "LANG") "__") 0 2) "ja")
 ;    (load "menu-tree"))
-
-;font
-(if window-system
-    (progn
-      (when windows-p
-        (progn
-          (create-fontset-from-ascii-font
-           "Ricty-12:weight=normal:slant=normal" nil "default")
-          (set-fontset-font "fontset-default"
-                            'unicode
-                            (font-spec :family "Ricty" :size 14)
-                            nil
-                            'append)
-          ))
-      (when darwin-p
-        (progn
-          (create-fontset-from-ascii-font
-           "Ricty Diminished-14:weight=normal:slant=normal" nil "default")
-          (set-fontset-font "fontset-default"
-                            'unicode
-                            (font-spec :family "Ricty" :size 14)
-                            nil
-                            'append)
-          (create-fontset-from-ascii-font
-           "AppleGothic-14:weight=normal:slant=normal" nil "hangeul")
-          (set-fontset-font "fontset-hangeul"
-                            'unicode
-                            (font-spec :family "AppleGothic" :size 14)
-                            nil
-                            'append)
-          ))
-      ))
-
-;;; X 版 Mule の設定
-(if window-system
-    (progn
-      ;;; スクロールバー
-      (set-scroll-bar-mode 'left)
-      (setq default-frame-alist
-            (append
-              '(;(foreground-color . "white")
-                ;(background-color . "black")
-                (font . "fontset-default")
-                (alpha . 80)
-                (height . 38)
-                (width . 80)
-                (cursor-color . "white")
-                (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
-;                (line-spacing . 0)
-              )
-             default-frame-alist))
-      )
-  ;;; mule/emacs -nw で起動した時の設定
-;  (progn
-    ;;; メニューバーを消す
-;    (if window-system (menu-bar-mode 1) (menu-bar-mode -1))
-;    )
-)
-;(setq frame-background-mode 'dark)
 
 ;;; 最終更新日の自動挿入
 ;;;   ファイルの先頭から 8 行以内に Time-stamp: <> または
@@ -395,7 +303,6 @@
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'java-mode-hook 'my-c-mode-common-hook)
 
 (setq auto-mode-alist
       (append
@@ -520,6 +427,7 @@
     (add-to-list 'company-backends 'company-irony)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
     (add-hook 'c-mode-common-hook 'irony-mode t)
+    (push 'java-mode irony-supported-major-modes)
     )
   )
 
@@ -629,39 +537,10 @@
          (local-set-key [return] 'gtags-select-tag)
          ))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 言語モード切り換え
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(defun toggle-lang-hook ()
-  (interactive)
-  (cond
-   ((string= current-language-environment "Japanese")
-    (set-language-environment "Korean"))
-   ((string= current-language-environment "Korean")
-    (set-language-environment "Japanese")))
-  )
-(define-key ctl-x-map "\C-k" 'toggle-lang-hook)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; for Mac OS X carbon emacs
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when darwin-p
-  (setq ns-option-modifier 'meta)
-  (setq ns-command-modifier 'meta)
-  (setq mac-pass-control-to-system nil)
-  (setq mac-pass-command-to-system nil)
-  (setq mac-pass-option-to-system nil)
-  )
-
-(setq exec-path (parse-colon-path (getenv "PATH")))
-(add-to-list 'exec-path "/usr/local/bin")
-
 ;; start server
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
-(use-package init-local)
 
 (cd "~")
 ;; .emacs ends here
