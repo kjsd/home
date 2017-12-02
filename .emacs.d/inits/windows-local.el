@@ -1,7 +1,7 @@
 ;;; windows-local.el --- local setting
 ;;; Commentary:
-
 ;;; Code:
+
 (if window-system
     (progn
       (create-fontset-from-ascii-font

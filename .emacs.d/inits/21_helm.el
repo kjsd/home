@@ -22,3 +22,4 @@
   (add-hook 'php-mode-hook 'helm-gtags-mode)
   (add-hook 'ruby-mode-hook 'helm-gtags-mode)
   )
+
