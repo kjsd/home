@@ -1,5 +1,6 @@
 /*
 .DS_Store
+*.elc
 !/.emacs.d/
 /.emacs.d/*.dat
 /.emacs.d/tramp

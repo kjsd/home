@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-02 00:14:50 minoru>
+;;                            Time-stamp: <2017-12-02 18:28:54 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -27,6 +27,12 @@
   :config
   (setq init-loader-show-log-after-init nil)
   (init-loader-load "~/.emacs.d/inits")
+  )
+
+(use-package auto-async-byte-compile
+  :config
+  (add-hook 'emacs-lisp-mode-hook
+            'enable-auto-async-byte-compile-mode)
   )
 
 ;;; 日本語環境 for Emacs21
@@ -296,9 +302,8 @@
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
 
-  ;(ggtags-mode 1)
-  ;(setq-local imenu-create-index-function #'ggtags-build-imenu-index)
-  (gtags-mode 1)
+  ;(gtags-mode 1)
+  (helm-gtags-mode 1)
   (cpp-highlight-buffer t)
   )
 
@@ -426,8 +431,9 @@
     (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
     (add-to-list 'company-backends 'company-irony)
     (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-    (add-hook 'c-mode-common-hook 'irony-mode t)
-    (push 'java-mode irony-supported-major-modes)
+    (add-hook 'c-mode-hook 'irony-mode t)
+    (add-hook 'c++-mode-hook 'irony-mode t)
+    (add-hook 'objc-mode-hook 'irony-mode t)
     )
   )
 
@@ -522,20 +528,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; gtags
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'gtags-mode "gtags" "" t)
-;(setq gtags-path-style 'relative)
-(setq gtags-mode-hook
+(use-package gtags
+  :disabled
+  (setq gtags-path-style 'relative)
+  (setq gtags-mode-hook
       '(lambda ()
          (local-set-key "\M-." 'gtags-find-tag)
          (local-set-key "\M-r" 'gtags-find-rtag)
          (local-set-key "\M-s" 'gtags-find-symbol)
          (local-set-key "\C-t" 'gtags-pop-stack)
          ))
-(setq gtags-select-mode-hook
-      '(lambda ()
-         (local-set-key "\C-t" 'gtags-pop-stack)
-         (local-set-key [return] 'gtags-select-tag)
-         ))
+  (setq gtags-select-mode-hook
+        '(lambda ()
+           (local-set-key "\C-t" 'gtags-pop-stack)
+           (local-set-key [return] 'gtags-select-tag)
+           ))
+  )
 
 ;; start server
 (require 'server)
@@ -552,4 +560,4 @@
  '(irony-additional-clang-options (quote ("-std=c++11")))
  '(package-selected-packages
    (quote
-    (lua-mode ggtags flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
+    (lua-mode flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
