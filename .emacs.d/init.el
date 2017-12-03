@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-02 20:29:20 minoru>
+;;                            Time-stamp: <2017-12-03 12:28:46 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -49,7 +49,6 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
-(setq default-buffer-file-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (setq file-name-coding-system 'utf-8)
 
@@ -112,7 +111,7 @@
 ;(column-number-mode t)
 
 ;;; 自動改行時の一行の文字数
-(setq fill-column 80)
+(setq-default fill-column 80)
 
 ;;; カーソルが行頭にあるときに，C-k 1回で その行全体を削除
 ;(setq kill-whole-line t)
@@ -244,7 +243,7 @@
     (while (< i 254)
       (setq i (+ i 1))
       (insert (format "%4d  0x%02x  %c\n" i i i))))
-  (beginning-of-buffer))
+  (goto-char (point-min)))
 
 ;; バッファの DOS の改行文字を UNIX に変更
 (defun dos2unix ()
@@ -531,26 +530,6 @@
       '((sdicf-client "~/lib/dict/gene.sdic")))
 (setq sdic-waei-dictionary-list
       '((sdicf-client "~/lib/dict/jedict.sdic")))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; gtags
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package gtags
-  :disabled
-  (setq gtags-path-style 'relative)
-  (setq gtags-mode-hook
-      '(lambda ()
-         (local-set-key "\M-." 'gtags-find-tag)
-         (local-set-key "\M-r" 'gtags-find-rtag)
-         (local-set-key "\M-s" 'gtags-find-symbol)
-         (local-set-key "\C-t" 'gtags-pop-stack)
-         ))
-  (setq gtags-select-mode-hook
-        '(lambda ()
-           (local-set-key "\C-t" 'gtags-pop-stack)
-           (local-set-key [return] 'gtags-select-tag)
-           ))
-  )
 
 ;; start server
 (require 'server)
