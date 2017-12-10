@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-03 12:28:46 minoru>
+;;                            Time-stamp: <2017-12-04 18:55:54 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -60,7 +60,7 @@
 ;(load-library "term/keyswap")
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
-;(global-set-key "\C-H" 'help-command)
+(global-set-key "\C-H" 'help-command)
 
 ;;; 日本語メニューの文字コード
 (setq menu-coding-system 'utf-8)
@@ -110,9 +110,6 @@
 (line-number-mode t)
 ;(column-number-mode t)
 
-;;; 自動改行時の一行の文字数
-(setq-default fill-column 80)
-
 ;;; カーソルが行頭にあるときに，C-k 1回で その行全体を削除
 ;(setq kill-whole-line t)
 
@@ -150,6 +147,8 @@
 ;(display-time)
 
 (setq-default tramp-default-method "sshx")
+
+(setq-default fill-column 80)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Ddskk
@@ -279,6 +278,14 @@
 (setq-default indent-tabs-mode nil)
 (setq-default auto-fill-function 'do-auto-fill)
 
+(add-hook 'switch-buffer-functions
+          '(lambda (prev cur)
+             (if (window-system)
+                 (if (/= (frame-width) fill-column)
+                     (set-frame-width (selected-frame) fill-column)))
+             )
+          )
+
 ;;; my-c-mode
 ;(setq cpp-known-face 'invisible)
 (setq cpp-known-face 'default)
@@ -301,7 +308,21 @@
   ;; (c-set-style "stroustrup")
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
+  ;; (c-set-style "java")
   (c-set-style "linux")
+
+  (c-set-offset 'case-label '0)
+  (c-set-offset 'namespace-open '0)
+  (c-set-offset 'namespace-close '0)
+  (c-set-offset 'innamespace '0)
+  (c-set-offset 'statement-case-open '0)
+  (c-set-offset 'statement-case-intro '+)
+  (c-set-offset 'access-label '-)
+  (c-set-offset 'substatement-open '0)
+  (c-set-offset 'defun-open '0)
+  (c-set-offset 'inline-open '0)
+  (c-set-offset 'inexpr-class '0)
+
   (setq c-basic-offset 4)
   (setq c-tab-always-indent t)
   ;;(setq c-comment-only-line-offset 0)
@@ -337,6 +358,12 @@
        '(("\\.ejs$" . web-mode))
        '(("\\.twig$" . web-mode))
        auto-mode-alist))
+
+;; java-mode
+(add-hook 'java-mode-hook
+          '(lambda ()
+             (set-fill-column 100))
+          )
 
 ;; js2-mode
 (defun indent-and-back-to-indentation ()
