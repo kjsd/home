@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-04 18:55:54 minoru>
+;;                            Time-stamp: <2017-12-10 15:48:33 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -301,6 +301,7 @@
          (background-color . "dim gray")
          nil both nil)))
 
+(require 'google-c-style)
 (defun my-c-mode-common-hook ()
   ;; (c-set-style "gnu")
   ;; (c-set-style "k&r")
@@ -309,7 +310,11 @@
   ;; (c-set-style "whitesmith")
   ;; (c-set-style "ellemtel")
   ;; (c-set-style "java")
-  (c-set-style "linux")
+  ;; (c-set-style "linux")
+  
+  (subword-mode)
+  (google-set-c-style)
+  (google-make-newline-indent)
 
   (c-set-offset 'case-label '0)
   (c-set-offset 'namespace-open '0)
@@ -335,6 +340,10 @@
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'java-mode-hook 'my-c-mode-common-hook)
+(add-hook 'java-mode-hook 
+          (lambda()
+            (set-fill-column 100)))
 
 (setq auto-mode-alist
       (append
@@ -359,12 +368,6 @@
        '(("\\.twig$" . web-mode))
        auto-mode-alist))
 
-;; java-mode
-(add-hook 'java-mode-hook
-          '(lambda ()
-             (set-fill-column 100))
-          )
-
 ;; js2-mode
 (defun indent-and-back-to-indentation ()
   (interactive)
@@ -386,35 +389,6 @@
                    js2-mode-escape-quotes    nil
                    js2-mode-squeeze-spaces   nil
                    js2-rebind-eol-bol-keys   nil)))
-
-;; d-mode
-(autoload 'd-mode "d-mode" "Major mode for editing D code." t)
-(add-hook 'd-mode-hook
-	  '(lambda ()
-	     (c-toggle-auto-state)))
-
-;; c#-mode
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-
-;; go-mode
-(autoload 'go-mode "go-mode" "Go language mode" t)
-(add-hook 'go-mode-hook
-	  '(lambda ()
-         (setq c-basic-offset 2)
-         (setq c-tab-always-indent t)
-         ))
-
-;; js-mode
-(add-hook 'js-mode-hook
-	  '(lambda ()
-         (setq c-basic-offset 2)
-         (setq c-tab-always-indent t)
-         ))
-
-;(setq load-path (cons "/usr/local/opt/erlang/lib/erlang/lib/tools-2.8.3/emacs"
-;                      load-path))
-;(setq erlang-root-dir "/usr/local/opt/erlang")
-;(require 'erlang-start)
 
 ;; web-mode (obsolated mmm-mode)
 (require 'web-mode)
