@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-03 12:28:46 minoru>
+;;                            Time-stamp: <2017-12-06 12:30:35 ZZPV3735>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -60,7 +60,7 @@
 ;(load-library "term/keyswap")
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\C-h" nil)
-;(global-set-key "\C-H" 'help-command)
+(global-set-key "\C-H" 'help-command)
 
 ;;; 日本語メニューの文字コード
 (setq menu-coding-system 'utf-8)
@@ -189,6 +189,7 @@
 		      (and (boundp 'skk-mode) skk-mode
 			   (skk-isearch-mode-setup)))))
 
+(load-theme 'dark-laptop t)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YaTeX
 ;;   [La]TeX 入力モード
@@ -411,47 +412,6 @@
  '(web-mode-html-tag-face ((t (:foreground "#00bfff")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; yasnippet
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package yasnippet
-  :config
-  ;; companyと競合するのでyasnippetのフィールド移動は "C-i" のみにする
-  (define-key yas-keymap (kbd "<tab>") nil)
-  (yas-global-mode 1)
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; company-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package company
-  :config
-  (global-company-mode 1)
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; irony
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package irony
-  :config
-  (progn
-    (custom-set-variables '(irony-additional-clang-options '("-std=c++11")))
-    (add-to-list 'company-backends 'company-irony)
-    (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-    (add-hook 'c-mode-hook 'irony-mode t)
-    (add-hook 'c++-mode-hook 'irony-mode t)
-    (add-hook 'objc-mode-hook 'irony-mode t)
-    )
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; flycheck
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package flycheck
-  :config
-  (global-flycheck-mode 1)
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; w3m
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -543,6 +503,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("b4fd44f653c69fb95d3f34f071b223ae705bb691fb9abaf2ffca3351e92aa374" default)))
  '(irony-additional-clang-options (quote ("-std=c++11")))
  '(package-selected-packages
    (quote

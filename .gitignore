@@ -5,6 +5,9 @@
 /.emacs.d/*.dat
 /.emacs.d/tramp
 /.emacs.d/auto-save-list
+/.emacs.d/*/bin
+/.emacs.d/server/
+/.emacs.d/elpa/archives/
 !/lib/
 !/lib/dircolors
 !/lib/dict
