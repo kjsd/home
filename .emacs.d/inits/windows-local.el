@@ -14,16 +14,15 @@
       (set-scroll-bar-mode 'left)
       (setq default-frame-alist
             (append
-              '(;(foreground-color . "white")
-                ;(background-color . "black")
-                (font . "fontset-default")
-                (alpha . 80)
-                (height . 38)
-                (width . 80)
-                (cursor-color . "white")
-                (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
-;                (line-spacing . 0)
-              )
+             '(
+               (font . "fontset-default")
+               (alpha . 80)
+               (height . 38)
+               (width . 80)
+               (cursor-color . "white")
+               (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
+               (line-spacing . 0)
+               )
              default-frame-alist))
       ))
 
