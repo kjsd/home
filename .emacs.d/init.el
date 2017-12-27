@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-26 18:43:55 minoru>
+;;                            Time-stamp: <2017-12-27 19:50:04 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -38,8 +38,7 @@
 
 (use-package auto-async-byte-compile
   :config
-  (add-hook 'emacs-lisp-mode-hook
-            'enable-auto-async-byte-compile-mode)
+  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
   )
 
 ;;; 日本語環境 for Emacs21
@@ -278,7 +277,7 @@
   (google-set-c-style)
   (google-make-newline-indent)
 
-  ;;(setq c-basic-offset 4)
+  (setq c-basic-offset 4)
   (setq c-tab-always-indent t)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
