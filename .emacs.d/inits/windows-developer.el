@@ -1,4 +1,4 @@
-;;; 21_developer.el --- local setting
+;;; windows-developer.el --- local setting
 ;;; Commentary:
 ;;; Code:
 
@@ -61,4 +61,4 @@
   (global-flycheck-mode 1)
   )
 
-;;; 21_developer.el ends here
+;;; windows-developer.el ends here

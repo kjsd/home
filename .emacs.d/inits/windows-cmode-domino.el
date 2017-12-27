@@ -3,6 +3,8 @@
 ;;; Code:
 
 (defun domino-c-mode-common-hook ()
+  (c-set-style "linux")
+
   (setq c-basic-offset 3)
   (setq tab-width 3)
   (setq indent-tabs-mode nil)
