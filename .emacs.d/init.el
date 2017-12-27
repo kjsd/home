@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-11 22:10:56 minoru>
+;;                            Time-stamp: <2017-12-26 18:43:55 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -151,45 +151,6 @@
 (setq-default fill-column 80)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Ddskk
-;;   Mule 上の仮名漢字変換システム SKK の設定
-;;   C-x t でチュートリアルが起動します
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(require 'skk-autoloads)
-(setq default-input-method "japanese-skk")
-
-;;; SKK-JISYO.L をメモリ上に読み込んで利用する場合
-;(setq skk-large-jisyo "~/Library/Application Support/AquaSKK/SKK-JISYO.L")
-
-;;; skkserv
-(setq skk-server-host "localhost")
-(setq skk-server-portnum 1178)
-;(setq skk-server-prog "/usr/sbin/skkserv")
-;(setq skk-server-jisyo "/usr/share/skk/SKK-JISYO.L")
-
-;; 標準の skk-kutouten-type
-(setq-default skk-kutouten-type 'en) ;; `jp' or `en'
-(setq skk-rom-kana-rule-list
-      '(("?" nil "？")
-        ("!" nil "！")))
-
-;; C-x C-. で句読点の種類をトグル
-(define-key ctl-x-map [?\C-.] 'skk-toggle-kutouten)
-
-(global-set-key "\C-x\C-j" 'skk-mode)
-(global-set-key "\C-xj" 'skk-auto-fill-mode)
-(global-set-key "\C-xt" 'skk-tutorial)
-
-(setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program "open")
-
-(add-hook 'isearch-mode-hook
-	  (function (lambda ()
-		      (and (boundp 'skk-mode) skk-mode
-			   (skk-isearch-mode-setup)))))
-
-(load-theme 'dark-laptop t)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; YaTeX
 ;;   [La]TeX 入力モード
 ;;   M-x yatex とするか、.tex で終わるファイルを読み込むと起動します
@@ -317,21 +278,8 @@
   (google-set-c-style)
   (google-make-newline-indent)
 
-  (c-set-offset 'case-label '0)
-  (c-set-offset 'namespace-open '0)
-  (c-set-offset 'namespace-close '0)
-  (c-set-offset 'innamespace '0)
-  (c-set-offset 'statement-case-open '0)
-  (c-set-offset 'statement-case-intro '+)
-  (c-set-offset 'access-label '-)
-  (c-set-offset 'substatement-open '0)
-  (c-set-offset 'defun-open '0)
-  (c-set-offset 'inline-open '0)
-  (c-set-offset 'inexpr-class '0)
-
-  (setq c-basic-offset 4)
+  ;;(setq c-basic-offset 4)
   (setq c-tab-always-indent t)
-  ;;(setq c-comment-only-line-offset 0)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
 
@@ -341,6 +289,7 @@
   )
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'java-mode-hook 'my-c-mode-common-hook)
 (add-hook 'java-mode-hook 
           (lambda()
@@ -510,4 +459,4 @@
  '(irony-additional-clang-options (quote ("-std=c++11")))
  '(package-selected-packages
    (quote
-    (lua-mode flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))
+    (gradle-mode lua-mode flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))

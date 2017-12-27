@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2017-12-02 17:30:03 minoru>
+#                            Time-stamp: <2017-12-26 20:51:14 minoru>
 # $Id: $
 
 #-----------------------------------------------------------------
@@ -236,7 +236,6 @@ word_abbrev=(
 	"work"	"~/Documents/work"
 	"proj"	"~/Documents/work/project"
 	"eproj"	"~/Documents/work/external_project"
-	"tij"	"~/work/tto/VPro/Modeler/V3/Prototype4/Controller/TIJBased"
 )
 
 # パイプに対する補完
