@@ -19,7 +19,6 @@
                         nil
                         'append)
 
-      (set-scroll-bar-mode 'left)
       (setq default-frame-alist
             (append
              '(

@@ -1,4 +1,4 @@
-;;; windows-local.el --- local setting
+;;; linux-local.el --- local setting
 ;;; Commentary:
 ;;; Code:
 
@@ -15,4 +15,4 @@
          )
        default-frame-alist))
 
-;;; windows-local.el ends here
+;;; linux-local.el ends here

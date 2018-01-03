@@ -11,7 +11,7 @@
              ;; ウィンドウの大きさを変更しないバッファ名の正規表現
              (setq golden-ratio-exclude-buffer-regexp
                    '("\\*anything" "\\*helm"))
-;;; ウィンドウ選択系のコマンドで作用させる
+             ;; ウィンドウ選択系のコマンドで作用させる
              (setq golden-ratio-extra-commands
                    '(windmove-left windmove-right windmove-down windmove-up))
              )             

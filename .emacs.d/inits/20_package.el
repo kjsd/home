@@ -10,7 +10,5 @@
 (use-package auto-install
   :config
   (auto-install-compatibility-setup)
-  (load-theme 'dark-laptop t t)
-  (enable-theme 'dark-laptop)
   )
 

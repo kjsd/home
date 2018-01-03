@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2017-12-27 19:50:04 minoru>
+;;                            Time-stamp: <2018-01-04 01:52:05 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -150,39 +150,6 @@
 (setq-default fill-column 80)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; YaTeX
-;;   [La]TeX 入力モード
-;;   M-x yatex とするか、.tex で終わるファイルを読み込むと起動します
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-;(autoload 'yahtml-mode "yahtml" "Yet Another HTML mode" t)
-
-;; ;; *.tex *.html の拡張子を持つファイルを開いた場合，
-;; ;; それぞれ yatex-mode, yahtml-mode にする．
-(setq auto-mode-alist
-       (cons (cons "\\.tex$" 'yatex-mode)
- 	    auto-mode-alist))
-; (setq auto-mode-alist
-;       (cons (cons "\\.html$" 'yahtml-mode)
-; 	    auto-mode-alist))
-
-(setq YaTeX-kanji-code nil)
-; (setq YaTeX-kanji-code 3)	; EUCにする
-;; (setq yahtml-kanji-code 1)	; SJISにする
-;(setq YaTeX-kanji-code 4)	; UTF-8
-;(setq yahtml-kanji-code 4)	; UTF-8
-;(setq yahtml-www-browser "firefox")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; TiMidity interface for Emacs
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;(autoload 'timidity "timidity" "TiMidity Interface" t)
-;(setq timidity-prog-path "/usr/bin/timidity")
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; その他の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -222,6 +189,8 @@
 
 ;ツールバーを消す
 (tool-bar-mode -1)
+
+(set-scroll-bar-mode 'left)
 
 ;; 同一名の buffer があったとき、開いているファイルのパスの一部を表示して
 ;; 区別する
@@ -440,22 +409,45 @@
 (setq sdic-waei-dictionary-list
       '((sdicf-client "~/lib/dict/jedict.sdic")))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; YaTeX
+;;   [La]TeX 入力モード
+;;   M-x yatex とするか、.tex で終わるファイルを読み込むと起動します
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+;(autoload 'yahtml-mode "yahtml" "Yet Another HTML mode" t)
+
+;; ;; *.tex *.html の拡張子を持つファイルを開いた場合，
+;; ;; それぞれ yatex-mode, yahtml-mode にする．
+(setq auto-mode-alist
+       (cons (cons "\\.tex$" 'yatex-mode)
+ 	    auto-mode-alist))
+; (setq auto-mode-alist
+;       (cons (cons "\\.html$" 'yahtml-mode)
+; 	    auto-mode-alist))
+
+(setq YaTeX-kanji-code nil)
+; (setq YaTeX-kanji-code 3)	; EUCにする
+;; (setq yahtml-kanji-code 1)	; SJISにする
+;(setq YaTeX-kanji-code 4)	; UTF-8
+;(setq yahtml-kanji-code 4)	; UTF-8
+;(setq yahtml-www-browser "firefox")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; TiMidity interface for Emacs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;(autoload 'timidity "timidity" "TiMidity Interface" t)
+;(setq timidity-prog-path "/usr/bin/timidity")
+
+
 ;; start server
 (require 'server)
 (unless (server-running-p)
   (server-start))
 
+(load-theme 'dark-laptop t)
+
 (cd "~")
 ;; .emacs ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("b4fd44f653c69fb95d3f34f071b223ae705bb691fb9abaf2ffca3351e92aa374" default)))
- '(irony-additional-clang-options (quote ("-std=c++11")))
- '(package-selected-packages
-   (quote
-    (gradle-mode lua-mode flycheck-irony cmake-mode flycheck irony yasnippet company yatex web-mode w3m packed mic-paren js2-mode fuzzy erlang elscreen ddskk d-mode csharp-mode color-theme-modern auto-install))))

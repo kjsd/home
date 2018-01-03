@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2017-12-26 20:51:14 minoru>
+#                            Time-stamp: <2018-01-04 00:09:51 minoru>
 # $Id: $
 
 #-----------------------------------------------------------------
@@ -24,7 +24,7 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
 #export PAGER=less
-export PAGER="lv -Ou8 -c -s"
+export PAGER="lv"
 
 #-----------------------------------------------------------------
 # ローカル設定の読み込み
@@ -176,7 +176,7 @@ setopt  rm_star_silent          # "rm * " を実行する前に確認
 #setopt  sh_word_split           # 変数内の文字列分解のデリミタ
 #setopt  histallowclobber        # ">" を ">!" としてヒストリ保存
 #setopt  printeightbit           # 8ビットクリーン表示→うまく動作せず
-#setopt  share_history
+setopt  share_history
 #setopt autopushd
 setopt nonomatch
 
@@ -196,20 +196,12 @@ LS_OPTIONS='-F --color=auto'
 
 alias ls="ls $LS_OPTIONS"
 alias dir="dir $LS_OPTIONS"
-alias vdir="vdir $LS_OPTIONS"
 alias la='ls -a'
 alias ll='ls -lF'
 alias h='history 20'
-alias more='less'
-#alias which='type -path'
+alias lv='lv -Ou8 -c -s'
 alias rehash='hash -r'
-#alias rmdir='rm -rf'
-alias s=source
-alias x=start
-alias j=jobs
 alias reload="source ~/.zshrc"
-#alias gd='dirs -v; echo -n "select number: "; read newdir; cd -"$newdir"'
-#alias screen="screen -U"
 alias hd=hexdump
 alias secon='umask 027'
 alias secoff='umask 022'
