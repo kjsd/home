@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2018-01-04 01:52:05 minoru>
+;;                            Time-stamp: <2018-01-04 03:23:23 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -16,7 +16,6 @@
 
 ;;; マクロサーチパスの追加
 ;;; ~/.emacs.d/lisp 以下にユーザ用の *.el, *.elc を置くことができます
-
 (let ((default-directory (expand-file-name "~/.emacs.d/site-lisp")))
   (add-to-list 'load-path default-directory)
   (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
@@ -28,13 +27,12 @@
               load-path))
 
 (eval-when-compile
-  (require 'use-package))
+  (require 'use-package)
+  (require 'bind-key))
 
-(use-package init-loader
-  :config
-  (setq init-loader-show-log-after-init nil)
-  (init-loader-load "~/.emacs.d/inits")
-  )
+(require 'init-loader)
+(setq init-loader-show-log-after-init nil)
+(init-loader-load "~/.emacs.d/inits")
 
 (use-package auto-async-byte-compile
   :config
@@ -250,6 +248,17 @@
   (setq c-tab-always-indent t)
   (setq c-echo-syntactic-infomation-p t)
   (setq c-hungry-delete-key t)
+
+  (c-set-offset 'case-label '0)
+  (c-set-offset 'namespace-open '0)
+  (c-set-offset 'namespace-close '0)
+  (c-set-offset 'innamespace '0)
+  (c-set-offset 'statement-case-open '0)
+  (c-set-offset 'statement-case-intro '+)
+  (c-set-offset 'access-label '-)
+  (c-set-offset 'substatement-open '0)
+  (c-set-offset 'defun-open '0)
+  (c-set-offset 'inline-open '0)
 
   ;(gtags-mode 1)
   (helm-gtags-mode 1)
