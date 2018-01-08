@@ -8,6 +8,7 @@
 /.emacs.d/*/bin
 /.emacs.d/server/
 /.emacs.d/elpa/archives/
+/.emacs.d/url/
 !/lib/
 !/lib/dircolors
 !/lib/dict

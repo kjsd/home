@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2018-01-04 00:09:51 minoru>
+#                            Time-stamp: <2018-01-08 15:03:27 minoru>
 # $Id: $
 
 #-----------------------------------------------------------------
@@ -23,8 +23,8 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
-#export PAGER=less
-export PAGER="lv"
+export PAGER=less
+#export PAGER="lv"
 
 #-----------------------------------------------------------------
 # ローカル設定の読み込み
@@ -226,8 +226,6 @@ word_abbrev=(
 	"lh"	"| head"
 	"lt"	"| tail"
 	"work"	"~/Documents/work"
-	"proj"	"~/Documents/work/project"
-	"eproj"	"~/Documents/work/external_project"
 )
 
 # パイプに対する補完

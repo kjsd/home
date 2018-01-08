@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2018-01-04 03:23:23 minoru>
+;;                            Time-stamp: <2018-01-05 21:37:00 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
@@ -460,3 +460,12 @@
 
 (cd "~")
 ;; .emacs ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(irony-additional-clang-options (quote ("-std=c++11")))
+ '(package-selected-packages
+   (quote
+    (ddskk yatex yasnippet web-mode w3m switch-buffer-functions packed package-utils mic-paren lua-mode js2-mode helm-gtags gtags gradle-mode google-c-style golden-ratio fuzzy flycheck-irony exec-path-from-shell erlang elscreen d-mode csharp-mode company-c-headers color-theme-modern cmake-mode auto-install auto-async-byte-compile))))
