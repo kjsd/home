@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2018-01-08 15:03:27 minoru>
+#                            Time-stamp: <2018-01-09 22:12:25 minoru>
 # $Id: $
 
 #-----------------------------------------------------------------
@@ -23,8 +23,9 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
-export PAGER=less
-#export PAGER="lv"
+export LV='-Ou8 -c -s'
+#export PAGER=less
+export PAGER="lv"
 
 #-----------------------------------------------------------------
 # ローカル設定の読み込み
@@ -199,7 +200,6 @@ alias dir="dir $LS_OPTIONS"
 alias la='ls -a'
 alias ll='ls -lF'
 alias h='history 20'
-alias lv='lv -Ou8 -c -s'
 alias rehash='hash -r'
 alias reload="source ~/.zshrc"
 alias hd=hexdump
