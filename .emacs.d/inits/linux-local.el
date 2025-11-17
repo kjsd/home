@@ -5,7 +5,7 @@
 (setq default-frame-alist
       (append
        '(
-         (font . "ricty diminished-18")
+         (font . "ricty-18")
          (alpha . 80)
          (height . 38)
          (width . 80)

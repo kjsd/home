@@ -2,16 +2,18 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  Plamo Linux ユーザ設定ファイルサンプル for emacs(mule)
 ;;            adjusted by M.KOJIMA, Chisato Yamauchi
-;;                            Time-stamp: <2018-01-13 00:46:57 minoru>
+;;                            Time-stamp: <2024-05-26 10:20:13 minoru>
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Plamo Linux の Emacs 21 (Mule) を利用するために必要な設定です。
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(require 'package)
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+        ;; ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("org" . "https://orgmode.org/elpa/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
 ;;; マクロサーチパスの追加
@@ -36,20 +38,19 @@
 
 (use-package auto-async-byte-compile
   :config
-  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode)
-  )
-
-;;; 日本語環境 for Emacs21
-;(require 'un-define)
-;(require 'jisx0213)
-(set-language-environment "Japanese")
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8)
-(setq file-name-coding-system 'utf-8)
+  (add-hook 'emacs-lisp-mode-hook 'enable-auto-async-byte-compile-mode))
 
 (defun x->bool (elt) (not (not elt)))
+
+(set-language-environment "Japanese")
+
+(prefer-coding-system 'utf-8-unix)      ; デフォルトの文字コード
+(set-default-coding-systems 'utf-8)     ; デフォルトの文字コード
+(set-keyboard-coding-system 'utf-8)     ; キーボード
+(set-terminal-coding-system 'utf-8)     ; ターミナル
+(set-file-name-coding-system 'utf-8-hfs) ; ファイル名(Mac日本語の濁音/半濁音対応)
+
+(set-default 'buffer-file-coding-system 'utf-8-unix) ; バッファー
 
 ;;; C-h と Del の入れ替え
 ;;; Help が Shift + Ctrl + h および Del に割当てられ、
@@ -59,37 +60,10 @@
 (global-set-key "\C-h" nil)
 (global-set-key "\C-H" 'help-command)
 
-;;; 日本語メニューの文字コード
-(setq menu-coding-system 'utf-8)
-
-;;; プリンタ出力設定
-(setq ps-multibyte-buffer 'non-latin-printer)
-(require 'ps-mule)
-;; Emacs-21のバグ(?)対策
-;(defalias 'ps-mule-header-string-charsets 'ignore)
-;; タイムスタンプ表示の調整など
-(add-hook 'ps-print-hook
-	  '(lambda ()
-	     ;; プリンタ出力のコマンドを定義
-;	     (setq ps-lpr-command "lpr")
-;	     (setq ps-printer-name-option "-P")
-	     ;; プリンタ名
-;	     (setq ps-printer-name "lp")
-;	     (setq ps-line-number t)
-	     (load "time-stamp")
-	     (setq ps-right-header
-		   (list "/pagenumberstring load"
-			 'time-stamp-yyyy/mm/dd
-			 'time-stamp-hh:mm:ss))))
-
-;;; メニューバーを日本語にします
-;(if (equal (substring (concat (getenv "LANG") "__") 0 2) "ja")
-;    (load "menu-tree"))
-
 ;;; 最終更新日の自動挿入
 ;;;   ファイルの先頭から 8 行以内に Time-stamp: <> または
 ;;;   Time-stamp: " " と書いてあれば、セーブ時に自動的に日付が挿入されます
-(add-hook 'write-file-hooks 'time-stamp)
+(add-hook 'write-file-functions 'time-stamp)
 
 ;;; マーク領域を色付け
 (setq transient-mark-mode t)
@@ -118,7 +92,7 @@
 
 ;;; ~つきのバックアップファイルを作らない
 (setq make-backup-files nil)
-;(setq auto-save-default nil)
+(setq auto-save-default nil)
 (setq delete-auto-save-files t)
 
 ;;; visible-bell
@@ -145,11 +119,13 @@
 
 (setq-default tramp-default-method "sshx")
 
-(setq-default fill-column 80)
-
+(add-to-list 'tramp-connection-properties
+             (list (regexp-quote "/sshx:minoru@darkstar.local:")
+                   "~minoru" "/Volumes/exports/Users/minoru"))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; その他の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq-default fill-column 90)
 
 ;; abbrev key
 (global-set-key "\C-x'" 'just-one-space)
@@ -203,14 +179,15 @@
 ;; モード別設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq-default tab-width 4)
+(setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
 (setq-default auto-fill-function 'do-auto-fill)
 
 (add-hook 'switch-buffer-functions
           '(lambda (prev cur)
              (if (window-system)
-                 (if (/= (frame-width) fill-column)
-                     (set-frame-width (selected-frame) fill-column)))
+                 (if (/= (frame-width) (+ fill-column 3))
+                     (set-frame-width (selected-frame) (+ fill-column 3))))
              )
           )
 
@@ -229,7 +206,6 @@
          (background-color . "dim gray")
          nil both nil)))
 
-(require 'google-c-style)
 (defun my-c-mode-common-hook ()
   ;; (c-set-style "gnu")
   ;; (c-set-style "k&r")
@@ -244,10 +220,11 @@
   (google-set-c-style)
   (google-make-newline-indent)
 
-  (setq c-basic-offset 4)
-  (setq c-tab-always-indent t)
-  (setq c-echo-syntactic-infomation-p t)
-  (setq c-hungry-delete-key t)
+  (setq auto-fill-function 'do-auto-fill)
+  (defvar c-basic-offset 4)
+  (defvar c-tab-always-indent t)
+  (defvar c-echo-syntactic-infomation-p t)
+  (defvar c-hungry-delete-key t)
 
   (c-set-offset 'case-label '0)
   (c-set-offset 'namespace-open '0)
@@ -267,10 +244,6 @@
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'java-mode-hook 'my-c-mode-common-hook)
-(add-hook 'java-mode-hook 
-          (lambda()
-            (set-fill-column 100)))
 
 (setq auto-mode-alist
       (append
@@ -293,6 +266,13 @@
        '(("\\.html?$" . web-mode))
        '(("\\.ejs$" . web-mode))
        '(("\\.twig$" . web-mode))
+       '(("\\.asp$" . web-mode))
+       '(("\\.asa$" . web-mode))
+       '(("\\.[l]?eex$" . web-mode))
+       '(("\\.jsx$" . web-mode))
+       '(("\\.tsx$" . web-mode))
+       '(("\\.ino$" . arduino-mode))
+       '(("\\.puml$" . plantuml-mode))
        auto-mode-alist))
 
 ;; js2-mode
@@ -306,6 +286,7 @@
     (skip-chars-forward "%s " point-of-indentation)))
 (add-hook 'js2-mode-hook
           '(lambda ()
+             (turn-on-auto-fill)
              (define-key js2-mode-map "\C-i" 'indent-and-back-to-indentation)
              (setq js2-auto-indent-flag      nil
                    js2-basic-offset 2
@@ -320,13 +301,15 @@
 ;; web-mode (obsolated mmm-mode)
 (require 'web-mode)
 (defun my-web-mode-hook ()
+  (setq auto-fill-function 'do-auto-fill)
   (setq web-mode-enable-auto-indentation nil)
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-engines-alist
         '(("php"    . "\\.phtml$")
-          ("blade"  . "\\.blade$")))
+          ("blade"  . "\\.blade$")
+          ("jsx"  . "\\.jsx$")))
   )
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
@@ -339,51 +322,10 @@
  '(web-mode-html-tag-face ((t (:foreground "#00bfff")))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; w3m
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(autoload 'w3m "w3m" "Interface for w3m on Emacs." t)
-(autoload 'w3m-find-file "w3m" "interface function for local file." t)
-(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-(autoload 'w3m-search "w3m-search" "Search QUERY using SEARCH-ENGINE." t)
-(autoload 'w3m-weather "w3m-weather" "Display weather report." t)
-(autoload 'w3m-antenna "w3m-antenna" "Report chenge of WEB sites." t)
-
-;; カーソル位置のリンクを標準のブラウザで開く
-(defun w3m-view-this-url-with-external-browser ()
-  (interactive)
-  (w3m-print-this-url t)
-  (w3m-view-url-with-external-browser (car kill-ring)))
-(add-hook 'w3m-display-hook
-          '(lambda ()
-             (define-key w3m-minor-mode-map "\C-c\C-e" 'w3m-view-this-url-with-external-browser)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ChangeLogモードの設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq user-full-name "Kenji MINOURA")
-(setq user-mail-address "kenji@kandj.org")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 拡張yank-pop
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(autoload 'yank-pop-forward "yank-pop-summary" nil t)
-(autoload 'yank-pop-backward "yank-pop-summary" nil t)
-(global-set-key "\M-y" 'yank-pop-forward)
-(global-set-key "\C-\M-y" 'yank-pop-backward)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; mic-paren
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(show-paren-mode 1) ; 対応する括弧に色をつける
-(when (locate-library "mic-paren")
-  (require 'mic-paren)
-  (paren-activate)     ; activating
-  (setq paren-face 'bold)
-  (setq paren-match-face 'bold)
-  (setq paren-sexp-mode t)
-)
-(setq parse-sexp-ignore-comments t) ;; コメント内のカッコは無視。
+(setq user-mail-address "info@kandj.org")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; buffer-list
@@ -400,11 +342,6 @@
 (elscreen-start)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; vc-svn
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'vc-handled-backends 'SVN)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sdic
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (autoload 'sdic-describe-word "sdic" "英単語の意味を調べる" t nil)
@@ -418,38 +355,33 @@
 (setq sdic-waei-dictionary-list
       '((sdicf-client "~/lib/dict/jedict.sdic")))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; YaTeX
-;;   [La]TeX 入力モード
-;;   M-x yatex とするか、.tex で終わるファイルを読み込むと起動します
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; twittering-mode
+(setq twittering-use-master-password t)
+(setq twittering-connection-type-order
+      '(wget curl urllib-http native urllib-https))
+(setq twittering-use-master-password t)
+(setq twittering-icon-mode t)
 
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-;(autoload 'yahtml-mode "yahtml" "Yet Another HTML mode" t)
-
-;; ;; *.tex *.html の拡張子を持つファイルを開いた場合，
-;; ;; それぞれ yatex-mode, yahtml-mode にする．
-(setq auto-mode-alist
-       (cons (cons "\\.tex$" 'yatex-mode)
- 	    auto-mode-alist))
-; (setq auto-mode-alist
-;       (cons (cons "\\.html$" 'yahtml-mode)
-; 	    auto-mode-alist))
-
-(setq YaTeX-kanji-code nil)
-; (setq YaTeX-kanji-code 3)	; EUCにする
-;; (setq yahtml-kanji-code 1)	; SJISにする
-;(setq YaTeX-kanji-code 4)	; UTF-8
-;(setq yahtml-kanji-code 4)	; UTF-8
-;(setq yahtml-www-browser "firefox")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; TiMidity interface for Emacs
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;(autoload 'timidity "timidity" "TiMidity Interface" t)
-;(setq timidity-prog-path "/usr/bin/timidity")
-
+;; for ipad
+(let ((translations '( 229 [?\M-a]  nil [?\M-b]   231 [?\M-c]  8706 [?\M-d]   nil [?\M-e]
+                      402 [?\M-f]  169 [?\M-g]   729 [?\M-h]   nil [?\M-i]  8710 [?\M-j]
+                      730 [?\M-k]  172 [?\M-l]   181 [?\M-m]   nil [?\M-n]   248 [?\M-o]
+                      960 [?\M-p]  339 [?\M-q]   174 [?\M-r]   223 [?\M-s]  8224 [?\M-t]
+                      nil [?\M-u] 8730 [?\M-v]  8721 [?\M-w]  8776 [?\M-x]   165 [?\M-y]
+                      937 [?\M-z]
+                      96 [?\M-~]  161 [?\M-1]   162 [?\M-4]   163 [?\M-3]   167 [?\M-6]
+                      170 [?\M-9]  171 [?\M-\\]  175 [?\M-<]   176 [?\M-*]   177 [?\M-+]
+                      182 [?\M-7]  183 [?\M-\(]  186 [?\M-0]   187 [?\M-|]   191 [?\M-\?]
+                      198 [?\M-\"] 230 [?\M-']   247 [?\M-/]   728 [?\M->]  8211 [?\M-\-]
+                      8212 [?\M-_] 8216 [?\M-\]] 8217 [?\M-}]  8218 [?\M-\)] 8220 [?\M-\[]
+                      8221 [?\M-{] 8225 [?\M-&]  8226 [\?M-8]  8249 [?\M-#]  8250 [?\M-$]
+                      8260 [?\M-!] 8364 [\?M-@]  8482 [?\M-2]  8734 [\?M-5]  8800 [?\M-=]
+                      8804 [?\M-,] 8805 [?\M-.] 64257 [?\M-%] 64258 [?\M-^])))
+(while translations
+  (let ((key (car translations)) (def (cadr translations)))
+    (if key
+        (define-key key-translation-map (make-string 1 key) def)))
+  (setq translations (cddr translations))))
 
 ;; start server
 (require 'server)
@@ -458,14 +390,33 @@
 
 (load-theme 'dark-laptop t)
 
+(defun toggle-lang-hook ()
+  (interactive)
+  (cond
+   ((string= current-language-environment "Japanese")
+    (set-language-environment "Korean"))
+   ((string= current-language-environment "Korean")
+    (set-language-environment "Japanese")))
+  )
+(define-key ctl-x-map "\C-k" 'toggle-lang-hook)
+
+(setq default-frame-alist
+      (append
+       '(
+         (font . "Ricty-16")
+         (alpha . 80)
+         (height . 38)
+         (width . 80)
+         (cursor-color . "white")
+         (set-frame-parameter (selected-frame)  'alpha  '(nil 70 50))
+         (line-spacing . 0)
+         )
+       default-frame-alist))
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (cd "~")
+
 ;; .emacs ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(irony-additional-clang-options (quote ("-std=c++11")))
- '(package-selected-packages
-   (quote
-    (ddskk yatex yasnippet web-mode w3m switch-buffer-functions packed package-utils mic-paren lua-mode js2-mode helm-gtags gtags gradle-mode google-c-style golden-ratio fuzzy flycheck-irony exec-path-from-shell erlang elscreen d-mode csharp-mode company-c-headers color-theme-modern cmake-mode auto-install auto-async-byte-compile))))

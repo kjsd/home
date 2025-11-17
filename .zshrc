@@ -1,6 +1,6 @@
 ###################################################################
 # ~/.zshrc 
-#                            Time-stamp: <2018-01-09 22:12:25 minoru>
+#                            Time-stamp: <2024-06-19 07:59:21 minoru>
 # $Id: $
 
 #-----------------------------------------------------------------
@@ -24,13 +24,13 @@ export PATH="$HOME/bin:/usr/local/bin:$PATH"
 # less で行番号をつけ，終了後に画面を残す
 export LESS='-i -M -X -R'
 export LV='-Ou8 -c -s'
-#export PAGER=less
-export PAGER="lv"
+export PAGER=less
+#export PAGER="lv"
 
 #-----------------------------------------------------------------
 # ローカル設定の読み込み
 #-----------------------------------------------------------------
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[ -f ~/.zshrc.local.sh ] && source ~/.zshrc.local.sh
 
 #-----------------------------------------------------------------
 # プロンプト
@@ -53,77 +53,79 @@ kterm|mlterm|xterm|xterm-color|rxvt|dtterm|vt100|screen|screen-bce|screen-256col
     HN="$SCREEN`hostname`:"
     #HN="$SCREEN`hostname -s`:"
     case "$TERM" in
-    vt*)
-	HN=""
-    ;;
+        vt*)
+	        HN=""
+            ;;
     esac
     function mkrmhmpwd () { BSBS_HOME=`echo "/$HOME"|sed -e 's/\//\\\\\//g'` ;
-	RMHMPWD=`echo "/$PWD"|sed -e "s/$BSBS_HOME/~/g"` ;
-	if [ "$RMHMPWD" = "/$PWD" ] ; then
-	    RMHMPWD="$PWD"
-	fi
-    }
+	                        RMHMPWD=`echo "/$PWD"|sed -e "s/$BSBS_HOME/~/g"` ;
+	                        if [ "$RMHMPWD" = "/$PWD" ] ; then
+	                            RMHMPWD="$PWD"
+	                        fi
+                          }
     # 遅いマシンではこの設定の方がいいかも…
     # function mkrmhmpwd () { RMHMPWD="$PWD" ; }
-    function termtitle () { echo -ne "\033]0;$*\007" ; }
+    function termtitle () {
+        echo -ne "\033]0;$*\007";
+    }
     function cd () {
-	if [ "x.$*" = "x." ] ; then
-	    builtin cd $* ;
-	else
-	    builtin cd "$*" ;
-	fi
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
+	    if [ "x.$*" = "x." ] ; then
+	        builtin cd $* ;
+	    else
+	        builtin cd "$*" ;
+	    fi
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
     }
     function popd () {
-	if [ "x.$*" = "x." ] ; then
-	    builtin popd $* ;
-	else
-	    builtin popd "$*" ;
-	fi
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
+	    if [ "x.$*" = "x." ] ; then
+	        builtin popd $* ;
+	    else
+	        builtin popd "$*" ;
+	    fi
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
     }
     function pushd () {
-	if [ "x.$*" = "x." ] ; then
-	    builtin pushd $* ;
-	else
-	    builtin pushd "$*" ;
-	fi
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
+	    if [ "x.$*" = "x." ] ; then
+	        builtin pushd $* ;
+	    else
+	        builtin pushd "$*" ;
+	    fi
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ;
     }
     function pwd () { builtin pwd ; mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ; }
     function su () { mkrmhmpwd ; termtitle "$HN""su $*($RMHMPWD)" ;
-	if [ "$1" = "-c" ] ; then command su -c "$2";
-	elif [ "$2" = "-c" ] ; then command su $1 -c "$3" 
-	elif [ "$3" = "-c" ] ; then command su - $2 -c "$4"
-	else command su $* ; fi
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ; }
+	                 if [ "$1" = "-c" ] ; then command su -c "$2";
+	                 elif [ "$2" = "-c" ] ; then command su $1 -c "$3" 
+	                 elif [ "$3" = "-c" ] ; then command su - $2 -c "$4"
+	                 else command su $* ; fi
+	                 mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" ; }
     function rsh () {
-	termtitle "$HN""rsh $*" 
-	command rsh $* 
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
+	    termtitle "$HN""rsh $*" 
+	    command rsh $* 
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
     }
     function rlogin () { 
-	termtitle "$HN""rlogin $*" 
-	command rlogin $* 
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" 
+	    termtitle "$HN""rlogin $*" 
+	    command rlogin $* 
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]" 
     }
     function telnet () { 
-	termtitle "$HN""telnet $*" 
-	command telnet $* 
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
+	    termtitle "$HN""telnet $*" 
+	    command telnet $* 
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
     }
     function ssh () { 
-	termtitle "$HN""ssh $*" 
-	command ssh $* 
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
+	    termtitle "$HN""ssh $*" 
+	    command ssh $* 
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
     }
     function screen () {
-	command screen $*
-	mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
+	    command screen $*
+	    mkrmhmpwd ; termtitle "$HN""[$RMHMPWD]"
     }
     mkrmhmpwd ;
     termtitle "$HN""[$RMHMPWD]"
-;;
+    ;;
 esac
 
 #PROMPT="%B%n@%m[%(?.%!.ERROR:%?)]%b%% "
@@ -205,7 +207,7 @@ alias reload="source ~/.zshrc"
 alias hd=hexdump
 alias secon='umask 027'
 alias secoff='umask 022'
-alias cleanup="rm -rf ~/Downloads/* ~/tmp/empty/*"
+alias cleanup="rm -rf ~/Downloads/* ~/tmp/empty/* ~/**/.*DS_Store"
 
 #-----------------------------------------------------------------
 # キーバインド設定
@@ -290,6 +292,7 @@ bindkey "^I" expand-my-abbrev-or-complete
 # 
 # 必要に応じて追加すると良い。基本的な設定は以下の通り。
 #
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -U compinit
 compinit -C
 
@@ -303,21 +306,6 @@ zstyle ':completion:*:processes' command 'ps x'
 
 # 補完候補にも色を付ける
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# dabbrev
-HARDCOPYFILE=$HOME/tmp/screen-hardcopy
-touch $HARDCOPYFILE
-
-dabbrev-complete () {
-        local reply lines=80 # 80行分
-        screen -X hardcopy -h $HARDCOPYFILE
-        reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
-        compadd - "${reply[@]%[*/=@|]}"
-}
-
-zle -C dabbrev-complete menu-complete dabbrev-complete
-bindkey '^o' dabbrev-complete
-bindkey '^o^/' reverse-menu-complete
 
 #__git_files() { _files }
 

@@ -2,7 +2,9 @@
 ;; Automatically generated file!!! DO NOT EDIT!!!
 
 (setq url-cookie-storage
- 'nil)
+ '(("plantuml.com"
+  [url-cookie "active_template::173770" "pub_site.1587441998" "Thu, 23 Apr 2020 04:06:38 UTC" "/" "plantuml.com" nil]))
+)
 (setq url-cookie-secure-storage
  '((".github.com"
   [url-cookie "HttpOnly" nil "Mon, 12 Jan 2037 13:00:17 -0000" "/" ".github.com" t]

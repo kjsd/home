@@ -2,4 +2,3 @@
   :config
   (exec-path-from-shell-initialize)
   )
-

@@ -1,1 +1,0 @@
-(define-package "switch-buffer-functions" "20171011.1004" "Hook run when current buffer changed" 'nil :commit "651696ef9dec7affbe51c81d9318288376c35899" :url "https://github.com/10sr/switch-buffer-functions-el" :keywords '("hook" "utility"))
